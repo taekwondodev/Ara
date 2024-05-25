@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct DeafApp: App {
+    @StateObject var speechRecognizer = SpeechRecognizer()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(speechRecognizer)
         }
     }
 }

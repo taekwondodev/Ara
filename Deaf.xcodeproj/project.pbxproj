@@ -11,7 +11,27 @@
 		D416DEB32BF79C010082E475 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416DEB22BF79C010082E475 /* ContentView.swift */; };
 		D416DEB52BF79C020082E475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D416DEB42BF79C020082E475 /* Assets.xcassets */; };
 		D416DEB82BF79C020082E475 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D416DEB72BF79C020082E475 /* Preview Assets.xcassets */; };
+		D416DEBF2BF7A0D00082E475 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416DEBE2BF7A0D00082E475 /* SpeechRecognizer.swift */; };
+		D4C66D4E2BFE4B9900B585E4 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C66D4D2BFE4B9900B585E4 /* AVKit.framework */; };
+		D4C66D502BFF6BC400B585E4 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C66D4F2BFF6BC400B585E4 /* VideoPlayerView.swift */; };
+		D4C66D572BFF80BB00B585E4 /* AVPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C66D562BFF80BB00B585E4 /* AVPlayerViewModel.swift */; };
+		D4C66D592BFF822C00B585E4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C66D582BFF822C00B585E4 /* AVFoundation.framework */; };
+		D4C66D5B2BFF823100B585E4 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C66D5A2BFF823100B585E4 /* Speech.framework */; };
+		D4C66D6A2C020DEE00B585E4 /* TranscriptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C66D692C020DEE00B585E4 /* TranscriptView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D4FBDB692BFB8D0A00B28F57 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D416DEAD2BF79C010082E475 /* Deaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deaf.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,6 +39,15 @@
 		D416DEB22BF79C010082E475 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D416DEB42BF79C020082E475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D416DEB72BF79C020082E475 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D416DEBE2BF7A0D00082E475 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		D44AD5E32BFB78C6008C00B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D4C66D4D2BFE4B9900B585E4 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		D4C66D4F2BFF6BC400B585E4 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		D4C66D562BFF80BB00B585E4 /* AVPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerViewModel.swift; sourceTree = "<group>"; };
+		D4C66D582BFF822C00B585E4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D4C66D5A2BFF823100B585E4 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
+		D4C66D692C020DEE00B585E4 /* TranscriptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptView.swift; sourceTree = "<group>"; };
+		D4FBDB552BFB8D0900B28F57 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +55,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C66D592BFF822C00B585E4 /* AVFoundation.framework in Frameworks */,
+				D4C66D5B2BFF823100B585E4 /* Speech.framework in Frameworks */,
+				D4C66D4E2BFE4B9900B585E4 /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				D416DEAF2BF79C010082E475 /* Deaf */,
+				D4FBDB522BFB8D0900B28F57 /* Frameworks */,
 				D416DEAE2BF79C010082E475 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,8 +84,12 @@
 		D416DEAF2BF79C010082E475 /* Deaf */ = {
 			isa = PBXGroup;
 			children = (
+				D44AD5E32BFB78C6008C00B1 /* Info.plist */,
 				D416DEB02BF79C010082E475 /* DeafApp.swift */,
 				D416DEB22BF79C010082E475 /* ContentView.swift */,
+				D4C66D692C020DEE00B585E4 /* TranscriptView.swift */,
+				D4C66D682C020DD100B585E4 /* SpeechRecognizer */,
+				D4C66D512BFF6BCE00B585E4 /* ScreenRecording */,
 				D416DEB42BF79C020082E475 /* Assets.xcassets */,
 				D416DEB62BF79C020082E475 /* Preview Content */,
 			);
@@ -67,6 +104,42 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		D4C66D512BFF6BCE00B585E4 /* ScreenRecording */ = {
+			isa = PBXGroup;
+			children = (
+				D4C66D5F2BFF93ED00B585E4 /* Pip */,
+			);
+			path = ScreenRecording;
+			sourceTree = "<group>";
+		};
+		D4C66D5F2BFF93ED00B585E4 /* Pip */ = {
+			isa = PBXGroup;
+			children = (
+				D4C66D562BFF80BB00B585E4 /* AVPlayerViewModel.swift */,
+				D4C66D4F2BFF6BC400B585E4 /* VideoPlayerView.swift */,
+			);
+			path = Pip;
+			sourceTree = "<group>";
+		};
+		D4C66D682C020DD100B585E4 /* SpeechRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				D416DEBE2BF7A0D00082E475 /* SpeechRecognizer.swift */,
+			);
+			path = SpeechRecognizer;
+			sourceTree = "<group>";
+		};
+		D4FBDB522BFB8D0900B28F57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4C66D5A2BFF823100B585E4 /* Speech.framework */,
+				D4C66D582BFF822C00B585E4 /* AVFoundation.framework */,
+				D4C66D4D2BFE4B9900B585E4 /* AVKit.framework */,
+				D4FBDB552BFB8D0900B28F57 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +150,7 @@
 				D416DEA92BF79C010082E475 /* Sources */,
 				D416DEAA2BF79C010082E475 /* Frameworks */,
 				D416DEAB2BF79C010082E475 /* Resources */,
+				D4FBDB692BFB8D0A00B28F57 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -137,8 +211,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C66D572BFF80BB00B585E4 /* AVPlayerViewModel.swift in Sources */,
 				D416DEB32BF79C010082E475 /* ContentView.swift in Sources */,
+				D4C66D6A2C020DEE00B585E4 /* TranscriptView.swift in Sources */,
 				D416DEB12BF79C010082E475 /* DeafApp.swift in Sources */,
+				D416DEBF2BF7A0D00082E475 /* SpeechRecognizer.swift in Sources */,
+				D4C66D502BFF6BC400B585E4 /* VideoPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +275,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -254,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -275,6 +353,10 @@
 				DEVELOPMENT_TEAM = 6STK5CF75S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Deaf/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"Deaf need this info\"";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "\"Deaf need this info\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -287,9 +369,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taekwondodev.Deaf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -304,6 +390,10 @@
 				DEVELOPMENT_TEAM = 6STK5CF75S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Deaf/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"Deaf need this info\"";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "\"Deaf need this info\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -316,9 +406,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taekwondodev.Deaf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
