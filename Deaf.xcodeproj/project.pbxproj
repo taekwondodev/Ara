@@ -12,12 +12,12 @@
 		D416DEB52BF79C020082E475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D416DEB42BF79C020082E475 /* Assets.xcassets */; };
 		D416DEB82BF79C020082E475 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D416DEB72BF79C020082E475 /* Preview Assets.xcassets */; };
 		D416DEBF2BF7A0D00082E475 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416DEBE2BF7A0D00082E475 /* SpeechRecognizer.swift */; };
-		D4C66D4E2BFE4B9900B585E4 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C66D4D2BFE4B9900B585E4 /* AVKit.framework */; };
 		D4C66D502BFF6BC400B585E4 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C66D4F2BFF6BC400B585E4 /* VideoPlayerView.swift */; };
 		D4C66D572BFF80BB00B585E4 /* AVPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C66D562BFF80BB00B585E4 /* AVPlayerViewModel.swift */; };
 		D4C66D592BFF822C00B585E4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C66D582BFF822C00B585E4 /* AVFoundation.framework */; };
 		D4C66D5B2BFF823100B585E4 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C66D5A2BFF823100B585E4 /* Speech.framework */; };
 		D4C66D6A2C020DEE00B585E4 /* TranscriptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C66D692C020DEE00B585E4 /* TranscriptView.swift */; };
+		D4DDE5A32C04BAF1002E0E74 /* AudioRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DDE5A22C04BAF1002E0E74 /* AudioRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +47,7 @@
 		D4C66D582BFF822C00B585E4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D4C66D5A2BFF823100B585E4 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
 		D4C66D692C020DEE00B585E4 /* TranscriptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptView.swift; sourceTree = "<group>"; };
+		D4DDE5A22C04BAF1002E0E74 /* AudioRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecord.swift; sourceTree = "<group>"; };
 		D4FBDB552BFB8D0900B28F57 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -57,7 +58,6 @@
 			files = (
 				D4C66D592BFF822C00B585E4 /* AVFoundation.framework in Frameworks */,
 				D4C66D5B2BFF823100B585E4 /* Speech.framework in Frameworks */,
-				D4C66D4E2BFE4B9900B585E4 /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				D44AD5E32BFB78C6008C00B1 /* Info.plist */,
+				D4DDE5A42C04BB33002E0E74 /* Persistence */,
 				D416DEB02BF79C010082E475 /* DeafApp.swift */,
 				D416DEB22BF79C010082E475 /* ContentView.swift */,
 				D4C66D692C020DEE00B585E4 /* TranscriptView.swift */,
@@ -127,6 +128,14 @@
 				D416DEBE2BF7A0D00082E475 /* SpeechRecognizer.swift */,
 			);
 			path = SpeechRecognizer;
+			sourceTree = "<group>";
+		};
+		D4DDE5A42C04BB33002E0E74 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D4DDE5A22C04BAF1002E0E74 /* AudioRecord.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		D4FBDB522BFB8D0900B28F57 /* Frameworks */ = {
@@ -213,6 +222,7 @@
 			files = (
 				D4C66D572BFF80BB00B585E4 /* AVPlayerViewModel.swift in Sources */,
 				D416DEB32BF79C010082E475 /* ContentView.swift in Sources */,
+				D4DDE5A32C04BAF1002E0E74 /* AudioRecord.swift in Sources */,
 				D4C66D6A2C020DEE00B585E4 /* TranscriptView.swift in Sources */,
 				D416DEB12BF79C010082E475 /* DeafApp.swift in Sources */,
 				D416DEBF2BF7A0D00082E475 /* SpeechRecognizer.swift in Sources */,

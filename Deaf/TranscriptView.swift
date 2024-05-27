@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct TranscriptView: View {
-    @EnvironmentObject var speechRecognizer: SpeechRecognizer
+   // @EnvironmentObject var speechRecognizer: SpeechRecognizer
     
     var body: some View {
-        Text(speechRecognizer.transcript)
+        Text("Hello")
             .padding()
     }
 }
