@@ -10,15 +10,22 @@ import Speech
 import Foundation
 import SwiftUI
 
-class SpeechRecognizer: ObservableObject {
+class SpeechRecognizer: NSObject, ObservableObject, SFSpeechRecognizerDelegate {
     @Published var transcript: String = ""
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
-    private let recognizer: SFSpeechRecognizer?
+    private var recognizer: SFSpeechRecognizer?
     
-    init(){
-        recognizer = SFSpeechRecognizer()
+    @Published var language: Language = .english{
+        didSet{
+            updateSpeechRecognizer()
+        }
+    }
+    
+    override init(){
+        super.init()
+        updateSpeechRecognizer()
         
         Task(priority: .background) {
             do{
@@ -36,6 +43,11 @@ class SpeechRecognizer: ObservableObject {
         reset()
     }
     
+    func updateSpeechRecognizer(){
+        recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: language.message))
+        recognizer?.delegate = self
+    }
+    
     private static func prepareEngine() throws -> (AVAudioEngine, SFSpeechAudioBufferRecognitionRequest){
         let audioEngine = AVAudioEngine()
         
@@ -43,8 +55,9 @@ class SpeechRecognizer: ObservableObject {
         request.shouldReportPartialResults = true
                 
         let audioSession = AVAudioSession.sharedInstance()
-        try audioSession.setCategory(.playAndRecord, options: [.defaultToSpeaker, .allowBluetooth])
-        try audioSession.setActive(true)
+        //try audioSession.setCategory(.playAndRecord, options: [.defaultToSpeaker, .allowBluetooth])
+        try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
+        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         let inputNode = audioEngine.inputNode
                 
         let recordingFormat = inputNode.outputFormat(forBus: 0)
@@ -91,7 +104,9 @@ class SpeechRecognizer: ObservableObject {
     }
     
     private func speak(_ message: String){
-        transcript = message
+        DispatchQueue.main.async {
+            self.transcript = message
+        }
     }
     
     func stopTrascribe(){
@@ -114,7 +129,10 @@ class SpeechRecognizer: ObservableObject {
         else{
             errorMessage += error.localizedDescription
         }
-        transcript = "<< \(errorMessage) >>"
+        
+        DispatchQueue.main.async{
+            self.transcript = "<< \(errorMessage) >>"
+        }
     }
     
     //MARK: Enum per gli errori
@@ -130,6 +148,19 @@ class SpeechRecognizer: ObservableObject {
             case .notAuthorizedToRecognize: return "Not authorized to recognize speech"
             case .notPermittedToRecord: return "Not permitted to record audio"
             case .recognizerIsUnavailable: return "Recognizer is unavailable"
+            }
+        }
+    }
+    
+    //MARK: Enum per i linguaggi
+    enum Language: String, CaseIterable {
+        case italian
+        case english
+        
+        var message: String {
+            switch self {
+            case .italian: return "it-IT"
+            case .english: return "en_US"
             }
         }
     }
