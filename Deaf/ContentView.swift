@@ -26,31 +26,29 @@ struct ContentView: View {
         VStack {
             
             //MARK: List of AudioRecordings
-//            if (audioRecords.isEmpty){
-//                Text("No audio stored")
-//            }
-//            else{
-//                List{
-//                    ForEach(audioRecords){ record in
-//                        NavigationLink(destination: TranscriptView()) {
-//                            VStack(alignment: .leading){
-//                                Text(record.title)
-//                                    .font(.headline)
-//                                Text(record.date.formatted(date: .long, time: .shortened))
-//                            }
-//                        }
-//                    }
-//                }
-//            }
+            //            if (audioRecords.isEmpty){
+            //                Text("No audio stored")
+            //            }
+            //            else{
+            //                List{
+            //                    ForEach(audioRecords){ record in
+            //                        NavigationLink(destination: TranscriptView()) {
+            //                            VStack(alignment: .leading){
+            //                                Text(record.title)
+            //                                    .font(.headline)
+            //                                Text(record.date.formatted(date: .long, time: .shortened))
+            //                            }
+            //                        }
+            //                    }
+            //                }
+            //            }
             
             
             Picker("Choose lang", selection: $speechRecognizer.language) {
-                ForEach(Language.allCases, id: \.self){ lang in
-                    Text(lang.message)
-                        .tag(lang)
+                ForEach(SpeechRecognizer.Language.allCases, id: \.self){ lang in
+                    Text(lang.rawValue.capitalized)
                 }
             }
-            .pickerStyle(SegmentedPickerStyle())
             
             Text(speechRecognizer.transcript)
                 .padding()
@@ -86,18 +84,6 @@ struct ContentView: View {
     //MARK: Swift Data Function
     func addRecords(audioRecord: AudioRecord){
         modelContext.insert(audioRecord)
-    }
-    
-    enum Language: String, CaseIterable {
-        case italian
-        case english
-        
-        var message: String {
-            switch self {
-            case .italian: return "it-IT"
-            case .english: return "en_EN"
-            }
-        }
     }
 }
 

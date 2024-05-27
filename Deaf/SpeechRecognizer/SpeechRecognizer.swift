@@ -10,7 +10,7 @@ import Speech
 import Foundation
 import SwiftUI
 
-class SpeechRecognizer: ObservableObject {
+class SpeechRecognizer: NSObject, ObservableObject, SFSpeechRecognizerDelegate {
     @Published var transcript: String = ""
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
@@ -23,7 +23,8 @@ class SpeechRecognizer: ObservableObject {
         }
     }
     
-    init(){
+    override init(){
+        super.init()
         updateSpeechRecognizer()
         
         Task(priority: .background) {
@@ -44,6 +45,7 @@ class SpeechRecognizer: ObservableObject {
     
     func updateSpeechRecognizer(){
         recognizer = SFSpeechRecognizer(locale: Locale.init(identifier: language.message))
+        recognizer?.delegate = self
     }
     
     private static func prepareEngine() throws -> (AVAudioEngine, SFSpeechAudioBufferRecognitionRequest){
@@ -54,7 +56,7 @@ class SpeechRecognizer: ObservableObject {
                 
         let audioSession = AVAudioSession.sharedInstance()
         //try audioSession.setCategory(.playAndRecord, options: [.defaultToSpeaker, .allowBluetooth])
-        try audioSession.setCategory(.record, mode: .spokenAudio, options: .duckOthers)
+        try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
         try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         let inputNode = audioEngine.inputNode
                 
@@ -102,7 +104,9 @@ class SpeechRecognizer: ObservableObject {
     }
     
     private func speak(_ message: String){
-        transcript = message
+        DispatchQueue.main.async {
+            self.transcript = message
+        }
     }
     
     func stopTrascribe(){
@@ -125,7 +129,10 @@ class SpeechRecognizer: ObservableObject {
         else{
             errorMessage += error.localizedDescription
         }
-        transcript = "<< \(errorMessage) >>"
+        
+        DispatchQueue.main.async{
+            self.transcript = "<< \(errorMessage) >>"
+        }
     }
     
     //MARK: Enum per gli errori
@@ -153,7 +160,7 @@ class SpeechRecognizer: ObservableObject {
         var message: String {
             switch self {
             case .italian: return "it-IT"
-            case .english: return "en_EN"
+            case .english: return "en_US"
             }
         }
     }
