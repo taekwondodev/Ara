@@ -9,10 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct SavedRecords: View {
-    @EnvironmentObject private var speechRecognizer: SpeechRecognizer
+    @EnvironmentObject var speechRecognizer: SpeechRecognizer
     
     //MARK: SWIFT DATA
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\.modelContext) var modelContext
     @Query(sort: [SortDescriptor(\AudioRecord.date, order: .reverse)]) var audioRecords: [AudioRecord]
     
     var body: some View {
@@ -36,7 +36,6 @@ struct SavedRecords: View {
                 }
             }
         }
-        
     }
     
     //MARK: Swift Data Function
@@ -46,8 +45,4 @@ struct SavedRecords: View {
             modelContext.delete(record)
         }
     }
-}
-
-#Preview {
-    SavedRecords()
 }

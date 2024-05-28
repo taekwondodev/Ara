@@ -17,7 +17,7 @@ class SpeechRecognizer: NSObject, ObservableObject, SFSpeechRecognizerDelegate {
     private var task: SFSpeechRecognitionTask?
     private var recognizer: SFSpeechRecognizer?
     
-    @Published var language: Language = .english{
+    @Published var language: Language = .italian{
         didSet{
             updateSpeechRecognizer()
         }
@@ -56,8 +56,17 @@ class SpeechRecognizer: NSObject, ObservableObject, SFSpeechRecognizerDelegate {
                 
         let audioSession = AVAudioSession.sharedInstance()
         //try audioSession.setCategory(.playAndRecord, options: [.defaultToSpeaker, .allowBluetooth])
+        //try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
         try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
         try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+        
+//        try audioSession.setPreferredSampleRate(44100.0)
+//        let bufferDuration = 0.005
+//        try audioSession.setPreferredIOBufferDuration(bufferDuration)
+//        if audioSession.isInputGainSettable{
+//            try audioSession.setInputGain(1.0)
+//        }
+        
         let inputNode = audioEngine.inputNode
                 
         let recordingFormat = inputNode.outputFormat(forBus: 0)

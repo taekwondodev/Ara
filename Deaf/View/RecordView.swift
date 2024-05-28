@@ -11,10 +11,11 @@ struct RecordView: View {
     let audioRecord: AudioRecord
     
     var body: some View {
-        VStack(alignment: .leading){
-            Text(audioRecord.title)
-                .font(.title)
-            Text(audioRecord.transcript)
+        NavigationStack{
+            VStack{
+                Text(audioRecord.transcript)
+            }
+            .navigationTitle(audioRecord.title)
         }
     }
 }

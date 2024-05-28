@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject private var speechRecognizer: SpeechRecognizer
+    @EnvironmentObject var speechRecognizer: SpeechRecognizer
     
     var body: some View {
         Picker("Choose lang", selection: $speechRecognizer.language) {

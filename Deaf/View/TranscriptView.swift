@@ -11,17 +11,14 @@ import SwiftData
 struct TranscriptView: View {
     @EnvironmentObject var speechRecognizer: SpeechRecognizer
     
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\.modelContext) var modelContext
+    @State var audioRecord = AudioRecord(title: "", transcript: "")
     
     @State private var isActive: Bool = false
     @State private var showAlert: Bool = false
-    @State private var recordTitle: String = ""
+    @State private var showSheet: Bool = false
     var body: some View {
         VStack{
-            
-            //MARK: Choose the title. Defaults to "new transcript"
-            TextField("Insert title of transcript...", text: $recordTitle)
-            
             Text(speechRecognizer.transcript)
                 .padding()
             
@@ -30,8 +27,8 @@ struct TranscriptView: View {
                     speechRecognizer.startTrascribe()
                 }
                 else {
+                    audioRecord.transcript = speechRecognizer.transcript
                     speechRecognizer.stopTrascribe()
-                    //QUI CHIAMA IL SAVE
                     showAlert = true
                 }
                 isActive.toggle()
@@ -47,20 +44,39 @@ struct TranscriptView: View {
                 }
             }
             .padding(.top, 40)
-            
         }// END VSTACK
         .alert("Do you want to save?", isPresented: $showAlert) {
             Button("Dont Save", role: .cancel) {}
-            Button("Save", role: .none) { saveTranscript() }
+            Button("Save", role: .none) { showSheet = true }
         }
+        .sheet(isPresented: $showSheet, content: {
+            VStack {
+                Form{
+                    TextField("Enter Title", text: $audioRecord.title)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+                    
+                    TextField("Enter Category", text: $audioRecord.title)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+                }
+                HStack {
+                    Button("OK") {
+                        saveTranscript()
+                        showSheet = false
+                    }
+                    .padding()
+                    
+                    Button("Cancel") { showSheet = false }
+                        .padding()
+                }
+            }
+        })
     }
     
     func saveTranscript() {
-        guard !recordTitle.isEmpty else { return }
-        let newRecord = AudioRecord (
-            title: recordTitle == "" ? "new transcript" : recordTitle,
-            transcript: speechRecognizer.transcript
-        )
+        let newRecord = AudioRecord(title: audioRecord.title == "" ? "New transcript" : audioRecord.title,
+                                    transcript: audioRecord.transcript)
         modelContext.insert(newRecord)
     }
 }

@@ -11,7 +11,7 @@ import SwiftData
 @Model
 class AudioRecord{
     var title: String
-    let transcript: String
+    var transcript: String
     var date: Date
     
     init(title: String, transcript: String) {

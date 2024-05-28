@@ -11,6 +11,8 @@
 		D416DEB32BF79C010082E475 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416DEB22BF79C010082E475 /* ContentView.swift */; };
 		D416DEB52BF79C020082E475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D416DEB42BF79C020082E475 /* Assets.xcassets */; };
 		D416DEBF2BF7A0D00082E475 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416DEBE2BF7A0D00082E475 /* SpeechRecognizer.swift */; };
+		D452ED272C061B9F00C592D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D452ED262C061B9F00C592D3 /* Preview Assets.xcassets */; };
+		D452ED2D2C0664C100C592D3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D452ED2C2C0664C100C592D3 /* Category.swift */; };
 		D489EB302C060610005ABFBD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489EB2F2C060610005ABFBD /* SettingsView.swift */; };
 		D489EB322C06061D005ABFBD /* SavedRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489EB312C06061D005ABFBD /* SavedRecords.swift */; };
 		D489EB342C06097D005ABFBD /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489EB332C06097D005ABFBD /* RecordView.swift */; };
@@ -42,6 +44,8 @@
 		D416DEB42BF79C020082E475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D416DEBE2BF7A0D00082E475 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		D44AD5E32BFB78C6008C00B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D452ED262C061B9F00C592D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D452ED2C2C0664C100C592D3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		D489EB2F2C060610005ABFBD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D489EB312C06061D005ABFBD /* SavedRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecords.swift; sourceTree = "<group>"; };
 		D489EB332C06097D005ABFBD /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 		D489EB352C060AF5005ABFBD /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				D452ED262C061B9F00C592D3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				D4DDE5A22C04BAF1002E0E74 /* AudioRecord.swift */,
+				D452ED2C2C0664C100C592D3 /* Category.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -220,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D452ED272C061B9F00C592D3 /* Preview Assets.xcassets in Resources */,
 				D416DEB52BF79C020082E475 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +248,7 @@
 				D416DEB12BF79C010082E475 /* DeafApp.swift in Sources */,
 				D416DEBF2BF7A0D00082E475 /* SpeechRecognizer.swift in Sources */,
 				D4C66D502BFF6BC400B585E4 /* VideoPlayerView.swift in Sources */,
+				D452ED2D2C0664C100C592D3 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +407,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -436,7 +444,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
