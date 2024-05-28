@@ -15,8 +15,13 @@ struct TranscriptView: View {
     
     @State private var isActive: Bool = false
     @State private var showAlert: Bool = false
+    @State private var recordTitle: String = ""
     var body: some View {
         VStack{
+            
+            //MARK: Choose the title. Defaults to "new transcript"
+            TextField("Insert title of transcript...", text: $recordTitle)
+            
             Text(speechRecognizer.transcript)
                 .padding()
             
@@ -26,6 +31,7 @@ struct TranscriptView: View {
                 }
                 else {
                     speechRecognizer.stopTrascribe()
+                    //QUI CHIAMA IL SAVE
                     showAlert = true
                 }
                 isActive.toggle()
@@ -45,12 +51,16 @@ struct TranscriptView: View {
         }// END VSTACK
         .alert("Do you want to save?", isPresented: $showAlert) {
             Button("Dont Save", role: .cancel) {}
-            Button("Save", role: .none) { saveRecords() }
+            Button("Save", role: .none) { saveTranscript() }
         }
     }
     
-    func saveRecords(){
-        let record = AudioRecord(title: "new", transcript: speechRecognizer.transcript)
-        modelContext.insert(record)
+    func saveTranscript() {
+        guard !recordTitle.isEmpty else { return }
+        let newRecord = AudioRecord (
+            title: recordTitle == "" ? "new transcript" : recordTitle,
+            transcript: speechRecognizer.transcript
+        )
+        modelContext.insert(newRecord)
     }
 }

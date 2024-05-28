@@ -13,27 +13,30 @@ struct SavedRecords: View {
     
     //MARK: SWIFT DATA
     @Environment(\.modelContext) private var modelContext
-    @Query() var audioRecords: [AudioRecord]
+    @Query(sort: [SortDescriptor(\AudioRecord.date, order: .reverse)]) var audioRecords: [AudioRecord]
     
     var body: some View {
-        //MARK: List of AudioRecordings
-        if (audioRecords.isEmpty){
-            Text("No audio stored")
-        }
-        else{
-            List{
-                ForEach(audioRecords){ record in
-                    NavigationLink(destination: RecordView(audioRecord: record)) {
-                        VStack(alignment: .leading){
-                            Text(record.title)
-                                .font(.headline)
-                            Text(record.date.formatted(date: .long, time: .shortened))
+        NavigationStack{
+            //MARK: List of AudioRecordings
+            if (audioRecords.isEmpty){
+                Text("No audio stored")
+            }
+            else{
+                List{
+                    ForEach(audioRecords){ record in
+                        NavigationLink(destination: RecordView(audioRecord: record)) {
+                            VStack(alignment: .leading){
+                                Text(record.title)
+                                    .font(.headline)
+                                Text(record.date.formatted(date: .long, time: .shortened))
+                            }
                         }
                     }
+                    .onDelete(perform: deleteRecord)
                 }
-                .onDelete(perform: deleteRecord)
             }
         }
+        
     }
     
     //MARK: Swift Data Function

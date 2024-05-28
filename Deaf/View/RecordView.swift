@@ -9,9 +9,11 @@ import SwiftUI
 
 struct RecordView: View {
     let audioRecord: AudioRecord
+    
     var body: some View {
         VStack(alignment: .leading){
-            Text(audioRecord.date.formatted(date: .long, time: .shortened))
+            Text(audioRecord.title)
+                .font(.title)
             Text(audioRecord.transcript)
         }
     }
