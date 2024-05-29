@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D40D79592C072EE200D5764B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D40D79572C072EE200D5764B /* Localizable.strings */; };
 		D416DEB12BF79C010082E475 /* DeafApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416DEB02BF79C010082E475 /* DeafApp.swift */; };
 		D416DEB32BF79C010082E475 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416DEB22BF79C010082E475 /* ContentView.swift */; };
 		D416DEB52BF79C020082E475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D416DEB42BF79C020082E475 /* Assets.xcassets */; };
@@ -38,6 +39,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D40D79582C072EE200D5764B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D40D795A2C072F0E00D5764B /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D416DEAD2BF79C010082E475 /* Deaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deaf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D416DEB02BF79C010082E475 /* DeafApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeafApp.swift; sourceTree = "<group>"; };
 		D416DEB22BF79C010082E475 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D40D79562C072EAB00D5764B /* Localize */ = {
+			isa = PBXGroup;
+			children = (
+				D40D79572C072EE200D5764B /* Localizable.strings */,
+			);
+			path = Localize;
+			sourceTree = "<group>";
+		};
 		D416DEA42BF79C010082E475 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +109,7 @@
 				D489EB362C061455005ABFBD /* View */,
 				D4C66D682C020DD100B585E4 /* SpeechRecognizer */,
 				D4C66D512BFF6BCE00B585E4 /* ScreenRecording */,
+				D40D79562C072EAB00D5764B /* Localize */,
 				D416DEB42BF79C020082E475 /* Assets.xcassets */,
 				D489EB352C060AF5005ABFBD /* Preview Content */,
 			);
@@ -210,6 +222,7 @@
 			knownRegions = (
 				en,
 				Base,
+				it,
 			);
 			mainGroup = D416DEA42BF79C010082E475;
 			productRefGroup = D416DEAE2BF79C010082E475 /* Products */;
@@ -227,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D452ED272C061B9F00C592D3 /* Preview Assets.xcassets in Resources */,
+				D40D79592C072EE200D5764B /* Localizable.strings in Resources */,
 				D416DEB52BF79C020082E475 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +267,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D40D79572C072EE200D5764B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D40D79582C072EE200D5764B /* en */,
+				D40D795A2C072F0E00D5764B /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D416DEB92BF79C020082E475 /* Debug */ = {
@@ -403,7 +429,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -440,7 +466,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
