@@ -12,7 +12,8 @@ struct TranscriptView: View {
     @EnvironmentObject var speechRecognizer: SpeechRecognizer
     
     @Environment(\.modelContext) var modelContext
-    @State var audioRecord = AudioRecord(title: "", transcript: "")
+    @State var audioTranscript: String = ""
+    @State var audioTitle: String = ""
     
     @State private var isActive: Bool = false
     @State private var showAlert: Bool = false
@@ -27,7 +28,7 @@ struct TranscriptView: View {
                     speechRecognizer.startTrascribe()
                 }
                 else {
-                    audioRecord.transcript = speechRecognizer.transcript
+                    audioTranscript = speechRecognizer.transcript
                     speechRecognizer.stopTrascribe()
                     showAlert = true
                 }
@@ -50,15 +51,13 @@ struct TranscriptView: View {
             Button("Save", role: .none) { showSheet = true }
         }
         .sheet(isPresented: $showSheet, content: {
-            VStack {
+            LazyVStack {
                 Form{
-                    TextField("Enter Title", text: $audioRecord.title)
+                    TextField("Enter Title", text: $audioTitle)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
                     
-                    TextField("Enter Category", text: $audioRecord.title)
+                    TextField("Enter Category", text: $audioTitle)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
                 }
                 HStack {
                     Button("OK") {
@@ -75,8 +74,8 @@ struct TranscriptView: View {
     }
     
     func saveTranscript() {
-        let newRecord = AudioRecord(title: audioRecord.title == "" ? "New transcript" : audioRecord.title,
-                                    transcript: audioRecord.transcript)
+        let newRecord = AudioRecord(title: audioTitle == "" ? "New transcript" : audioTitle,
+                                    transcript: audioTranscript)
         modelContext.insert(newRecord)
     }
 }
