@@ -17,24 +17,39 @@ struct SavedRecords: View {
     
     var body: some View {
         NavigationStack{
-            //MARK: List of AudioRecordings
-            if (audioRecords.isEmpty){
-                Text("No audio stored")
-            }
-            else{
-                List{
-                    ForEach(audioRecords){ record in
-                        NavigationLink(destination: RecordView(audioRecord: record)) {
-                            VStack(alignment: .leading){
-                                Text(record.title)
-                                    .font(.headline)
-                                Text(record.date.formatted(date: .long, time: .shortened))
+            ZStack{
+                Image("Ali")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                    .blur(radius: 15.0)
+                    .overlay{
+                        Color.white.opacity(0.6)
+                    }
+                    .edgesIgnoringSafeArea(.top)
+                
+                VStack(alignment: .leading){
+                    //MARK: List of AudioRecordings
+                    if (audioRecords.isEmpty){
+                        Text("No audio stored")
+                    }
+                    else{
+                        List{
+                            ForEach(audioRecords){ record in
+                                NavigationLink(destination: RecordView(audioRecord: record)) {
+                                    VStack(alignment: .leading){
+                                        Text(record.title)
+                                            .font(.headline)
+                                        Text(record.date.formatted(date: .long, time: .shortened))
+                                    }
+                                }
                             }
+                            .onDelete(perform: deleteRecord)
                         }
                     }
-                    .onDelete(perform: deleteRecord)
-                }
-            }
+                }//END VSTACK
+            }//END ZSTACK
+            .navigationTitle("Library")
         }
     }
     

@@ -16,6 +16,10 @@ struct ContentView: View {
     //@StateObject private var viewModel = AVPlayerViewModel()
     
     //MARK: View Property
+    init(){
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().backgroundImage = UIImage()
+    }
     @State var isOnboarding = true
     var body: some View {
         if isOnboarding {
@@ -23,12 +27,12 @@ struct ContentView: View {
         }
         else {
             TabView{
-                TranscriptView()
-                    .environmentObject(speechRecognizer)
-                    .tabItem { Label("Play", systemImage: "play.fill") }
                 SavedRecords()
                     .environmentObject(speechRecognizer)
                     .tabItem { Label("Records", systemImage: "list.clipboard.fill") }
+                TranscriptView()
+                    .environmentObject(speechRecognizer)
+                    .tabItem { Label("Play", systemImage: "play.fill") }
                 SettingsView()
                     .environmentObject(speechRecognizer)
                     .tabItem { Label("Settings", systemImage: "gear") }

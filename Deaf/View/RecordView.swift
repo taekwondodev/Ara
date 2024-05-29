@@ -11,11 +11,17 @@ struct RecordView: View {
     let audioRecord: AudioRecord
     
     var body: some View {
-        NavigationStack{
-            VStack{
+        VStack{
+            Text(audioRecord.date.formatted(date: .long, time: .shortened))
+                .font(.subheadline)
+            
+            VStack(alignment: .leading){
+                Text(audioRecord.title)
+                    .font(.title)
                 Text(audioRecord.transcript)
+                    .font(.body)
             }
-            .navigationTitle(audioRecord.title)
+            .padding(.top)
         }
     }
 }

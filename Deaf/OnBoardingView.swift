@@ -88,7 +88,7 @@ struct OnBoardingView: View {
                 Text(currentStep < onBoardingSteps.count - 1 ? "Next" : "Get started")
                     .padding(16)
                     .frame(maxWidth: .infinity)
-                    .background(Color.cyan)
+                    .background(currentStep < onBoardingSteps.count - 1 ? Color.cyan : Color.blue)
                     .cornerRadius(16)
                     .padding(.horizontal)
                     .foregroundColor(.white)
