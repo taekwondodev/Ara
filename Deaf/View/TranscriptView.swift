@@ -76,23 +76,19 @@ struct TranscriptView: View {
         }
         .sheet(isPresented: $showSheet, content: {
             LazyVStack {
-                Form{
-                    TextField("Enter Title", text: $audioTitle)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    
-                    TextField("Enter Category", text: $audioTitle)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
+                TitleView(audioTitle: $audioTitle)
+                
                 HStack {
                     Button("OK") {
                         saveTranscript()
                         showSheet = false
                     }
-                    .padding()
+                    .padding(.horizontal)
                     
                     Button("Cancel") { showSheet = false }
-                        .padding()
+                        .padding(.horizontal)
                 }
+                .padding()
             }
         })
     }
