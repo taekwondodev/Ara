@@ -53,30 +53,28 @@ class SpeechRecognizer: NSObject, ObservableObject, SFSpeechRecognizerDelegate {
         
         let request = SFSpeechAudioBufferRecognitionRequest()
         request.shouldReportPartialResults = true
-                
+        
         let audioSession = AVAudioSession.sharedInstance()
-        //try audioSession.setCategory(.playAndRecord, options: [.defaultToSpeaker, .allowBluetooth])
         //try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
-        try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
+        //per permettere più microfoni, soprattutto in bluetooth
+        try audioSession.setCategory(.playAndRecord, mode: .measurement, options: [.defaultToSpeaker, .allowBluetooth])
+        
+        try audioSession.setMode(.default)
+        try audioSession.setPreferredSampleRate(44100)
+        try audioSession.setPreferredIOBufferDuration(0.005)
+        
         try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         
-//        try audioSession.setPreferredSampleRate(44100.0)
-//        let bufferDuration = 0.005
-//        try audioSession.setPreferredIOBufferDuration(bufferDuration)
-//        if audioSession.isInputGainSettable{
-//            try audioSession.setInputGain(1.0)
-//        }
-        
         let inputNode = audioEngine.inputNode
-                
+        
         let recordingFormat = inputNode.outputFormat(forBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) {
-                (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
-                request.append(buffer)
+            (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
+            request.append(buffer)
         }
         audioEngine.prepare()
         try audioEngine.start()
-                
+        
         return (audioEngine, request)
     }
     
