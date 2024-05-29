@@ -15,15 +15,14 @@
 		D416DEBF2BF7A0D00082E475 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416DEBE2BF7A0D00082E475 /* SpeechRecognizer.swift */; };
 		D452ED272C061B9F00C592D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D452ED262C061B9F00C592D3 /* Preview Assets.xcassets */; };
 		D452ED2D2C0664C100C592D3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D452ED2C2C0664C100C592D3 /* Category.swift */; };
+		D47F335E2C07BDCF00A82C02 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47F335D2C07BDCF00A82C02 /* ModalView.swift */; };
+		D47F33602C07BF7C00A82C02 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47F335F2C07BF7C00A82C02 /* RecordButton.swift */; };
 		D489EB302C060610005ABFBD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489EB2F2C060610005ABFBD /* SettingsView.swift */; };
 		D489EB322C06061D005ABFBD /* SavedRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489EB312C06061D005ABFBD /* SavedRecords.swift */; };
 		D489EB342C06097D005ABFBD /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489EB332C06097D005ABFBD /* RecordView.swift */; };
-		D4C66D502BFF6BC400B585E4 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C66D4F2BFF6BC400B585E4 /* VideoPlayerView.swift */; };
-		D4C66D572BFF80BB00B585E4 /* AVPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C66D562BFF80BB00B585E4 /* AVPlayerViewModel.swift */; };
 		D4C66D592BFF822C00B585E4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C66D582BFF822C00B585E4 /* AVFoundation.framework */; };
 		D4C66D5B2BFF823100B585E4 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C66D5A2BFF823100B585E4 /* Speech.framework */; };
 		D4C66D6A2C020DEE00B585E4 /* TranscriptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C66D692C020DEE00B585E4 /* TranscriptView.swift */; };
-		D4DAC4FE2C07A93000A6E028 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAC4FD2C07A93000A6E028 /* TitleView.swift */; };
 		D4DDE5A32C04BAF1002E0E74 /* AudioRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DDE5A22C04BAF1002E0E74 /* AudioRecord.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,15 +51,14 @@
 		D44AD5E32BFB78C6008C00B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D452ED262C061B9F00C592D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D452ED2C2C0664C100C592D3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		D47F335D2C07BDCF00A82C02 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		D47F335F2C07BF7C00A82C02 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		D489EB2F2C060610005ABFBD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D489EB312C06061D005ABFBD /* SavedRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRecords.swift; sourceTree = "<group>"; };
 		D489EB332C06097D005ABFBD /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
-		D4C66D4F2BFF6BC400B585E4 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
-		D4C66D562BFF80BB00B585E4 /* AVPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerViewModel.swift; sourceTree = "<group>"; };
 		D4C66D582BFF822C00B585E4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D4C66D5A2BFF823100B585E4 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
 		D4C66D692C020DEE00B585E4 /* TranscriptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptView.swift; sourceTree = "<group>"; };
-		D4DAC4FD2C07A93000A6E028 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		D4DDE5A22C04BAF1002E0E74 /* AudioRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecord.swift; sourceTree = "<group>"; };
 		D4FBDB552BFB8D0900B28F57 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -113,7 +111,6 @@
 				D416DEB22BF79C010082E475 /* ContentView.swift */,
 				D489EB362C061455005ABFBD /* View */,
 				D4C66D682C020DD100B585E4 /* SpeechRecognizer */,
-				D4C66D512BFF6BCE00B585E4 /* ScreenRecording */,
 				D40D79562C072EAB00D5764B /* Localize */,
 				D416DEB42BF79C020082E475 /* Assets.xcassets */,
 				D489EB352C060AF5005ABFBD /* Preview Content */,
@@ -136,26 +133,10 @@
 				D489EB312C06061D005ABFBD /* SavedRecords.swift */,
 				D489EB332C06097D005ABFBD /* RecordView.swift */,
 				D4C66D692C020DEE00B585E4 /* TranscriptView.swift */,
-				D4DAC4FD2C07A93000A6E028 /* TitleView.swift */,
+				D47F335F2C07BF7C00A82C02 /* RecordButton.swift */,
+				D47F335D2C07BDCF00A82C02 /* ModalView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		D4C66D512BFF6BCE00B585E4 /* ScreenRecording */ = {
-			isa = PBXGroup;
-			children = (
-				D4C66D5F2BFF93ED00B585E4 /* Pip */,
-			);
-			path = ScreenRecording;
-			sourceTree = "<group>";
-		};
-		D4C66D5F2BFF93ED00B585E4 /* Pip */ = {
-			isa = PBXGroup;
-			children = (
-				D4C66D562BFF80BB00B585E4 /* AVPlayerViewModel.swift */,
-				D4C66D4F2BFF6BC400B585E4 /* VideoPlayerView.swift */,
-			);
-			path = Pip;
 			sourceTree = "<group>";
 		};
 		D4C66D682C020DD100B585E4 /* SpeechRecognizer */ = {
@@ -259,17 +240,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D489EB322C06061D005ABFBD /* SavedRecords.swift in Sources */,
-				D4C66D572BFF80BB00B585E4 /* AVPlayerViewModel.swift in Sources */,
 				D489EB302C060610005ABFBD /* SettingsView.swift in Sources */,
 				D489EB342C06097D005ABFBD /* RecordView.swift in Sources */,
+				D47F335E2C07BDCF00A82C02 /* ModalView.swift in Sources */,
 				D416DEB32BF79C010082E475 /* ContentView.swift in Sources */,
 				D4DDE5A32C04BAF1002E0E74 /* AudioRecord.swift in Sources */,
 				D4C66D6A2C020DEE00B585E4 /* TranscriptView.swift in Sources */,
 				D416DEB12BF79C010082E475 /* DeafApp.swift in Sources */,
 				D416DEBF2BF7A0D00082E475 /* SpeechRecognizer.swift in Sources */,
+				D47F33602C07BF7C00A82C02 /* RecordButton.swift in Sources */,
 				D40D795C2C07626000D5764B /* OnBoardingView.swift in Sources */,
-				D4C66D502BFF6BC400B585E4 /* VideoPlayerView.swift in Sources */,
-				D4DAC4FE2C07A93000A6E028 /* TitleView.swift in Sources */,
 				D452ED2D2C0664C100C592D3 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

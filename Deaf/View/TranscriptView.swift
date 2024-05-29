@@ -6,12 +6,10 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct TranscriptView: View {
     @EnvironmentObject var speechRecognizer: SpeechRecognizer
     
-    @Environment(\.modelContext) var modelContext
     @State var audioTranscript: String = ""
     @State var audioTitle: String = ""
     
@@ -52,21 +50,7 @@ struct TranscriptView: View {
                     isActive.toggle()
                 })
                 { //LABEL
-                    ZStack {
-                        Circle()
-                            .foregroundStyle(.clear)
-                            .frame(width: 60, height: 60)
-                            .overlay{
-                                Circle()
-                                    .stroke(Color(red: 1, green: 0.23, blue: 0.19), lineWidth: 2)
-                            }
-                        
-                        Circle()
-                            .foregroundStyle(Color(red: 1, green: 0.23, blue: 0.19))
-                            .frame(width: 50, height: 50)
-                    }
-                    .frame(alignment: .bottom)
-                    .padding(.bottom)
+                    RecordButton()
                 }
             }//END VSTACK
         }// END ZSTACK
@@ -75,27 +59,8 @@ struct TranscriptView: View {
             Button("Save", role: .none) { showSheet = true }
         }
         .sheet(isPresented: $showSheet, content: {
-            LazyVStack {
-                TitleView(audioTitle: $audioTitle)
-                
-                HStack {
-                    Button("OK") {
-                        saveTranscript()
-                        showSheet = false
-                    }
-                    .padding(.horizontal)
-                    
-                    Button("Cancel") { showSheet = false }
-                        .padding(.horizontal)
-                }
-                .padding()
-            }
+            ModalView(audioTranscript: audioTranscript, audioTitle: $audioTitle)
         })
     }
     
-    func saveTranscript() {
-        let newRecord = AudioRecord(title: audioTitle == "" ? "New transcript" : audioTitle,
-                                    transcript: audioTranscript)
-        modelContext.insert(newRecord)
-    }
 }

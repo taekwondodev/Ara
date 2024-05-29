@@ -6,14 +6,10 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
     //MARK: SPEECH
     @StateObject var speechRecognizer = SpeechRecognizer()
-    
-    //MARK: PiP
-    //@StateObject private var viewModel = AVPlayerViewModel()
     
     //MARK: View Property
     init(){
