@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D40D79592C072EE200D5764B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D40D79572C072EE200D5764B /* Localizable.strings */; };
+		D40D795C2C07626000D5764B /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D795B2C07626000D5764B /* OnBoardingView.swift */; };
 		D416DEB12BF79C010082E475 /* DeafApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416DEB02BF79C010082E475 /* DeafApp.swift */; };
 		D416DEB32BF79C010082E475 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416DEB22BF79C010082E475 /* ContentView.swift */; };
 		D416DEB52BF79C020082E475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D416DEB42BF79C020082E475 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		D40D79582C072EE200D5764B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D40D795A2C072F0E00D5764B /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D40D795B2C07626000D5764B /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		D416DEAD2BF79C010082E475 /* Deaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deaf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D416DEB02BF79C010082E475 /* DeafApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeafApp.swift; sourceTree = "<group>"; };
 		D416DEB22BF79C010082E475 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				D44AD5E32BFB78C6008C00B1 /* Info.plist */,
 				D4DDE5A42C04BB33002E0E74 /* Persistence */,
 				D416DEB02BF79C010082E475 /* DeafApp.swift */,
+				D40D795B2C07626000D5764B /* OnBoardingView.swift */,
 				D416DEB22BF79C010082E475 /* ContentView.swift */,
 				D489EB362C061455005ABFBD /* View */,
 				D4C66D682C020DD100B585E4 /* SpeechRecognizer */,
@@ -261,6 +264,7 @@
 				D4C66D6A2C020DEE00B585E4 /* TranscriptView.swift in Sources */,
 				D416DEB12BF79C010082E475 /* DeafApp.swift in Sources */,
 				D416DEBF2BF7A0D00082E475 /* SpeechRecognizer.swift in Sources */,
+				D40D795C2C07626000D5764B /* OnBoardingView.swift in Sources */,
 				D4C66D502BFF6BC400B585E4 /* VideoPlayerView.swift in Sources */,
 				D452ED2D2C0664C100C592D3 /* Category.swift in Sources */,
 			);

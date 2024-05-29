@@ -56,7 +56,7 @@ class SpeechRecognizer: NSObject, ObservableObject, SFSpeechRecognizerDelegate {
         
         let audioSession = AVAudioSession.sharedInstance()
         //try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
-        //per permettere più microfoni, soprattutto in bluetooth
+        //per permettere più microfoni
         try audioSession.setCategory(.playAndRecord, mode: .measurement, options: [.defaultToSpeaker, .allowBluetooth])
         
         try audioSession.setMode(.default)
@@ -163,11 +163,13 @@ class SpeechRecognizer: NSObject, ObservableObject, SFSpeechRecognizerDelegate {
     enum Language: String, CaseIterable {
         case italian
         case english
+        case spanish
         
         var message: String {
             switch self {
             case .italian: return "it-IT"
             case .english: return "en_US"
+            case .spanish: return "es-ES"
             }
         }
     }
