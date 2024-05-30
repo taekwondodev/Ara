@@ -28,10 +28,10 @@ struct ModalView: View {
                 TextField("Enter Category", text: $audioTitle)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .focused($focus, equals: .category)
+                    .onAppear(perform: {
+                        focus = .title
+                    })
             }
-            .onAppear(perform: {
-                focus = .title
-            })
             
             HStack {
                 Button("OK") {

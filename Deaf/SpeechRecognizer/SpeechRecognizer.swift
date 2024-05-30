@@ -56,14 +56,12 @@ class SpeechRecognizer: NSObject, ObservableObject, SFSpeechRecognizerDelegate {
         
         let audioSession = AVAudioSession.sharedInstance()
         //try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
-        //per permettere più microfoni
-        try audioSession.setCategory(.playAndRecord, mode: .measurement, options: [.defaultToSpeaker, .allowBluetooth])
+        try audioSession.setCategory(.playAndRecord, mode: .default)
         
-        try audioSession.setMode(.default)
-        try audioSession.setPreferredSampleRate(44100)
-        try audioSession.setPreferredIOBufferDuration(0.005)
-        
-        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+//        try audioSession.setMode(.default)
+//        try audioSession.setPreferredSampleRate(44100)
+//        try audioSession.setPreferredIOBufferDuration(0.005)
+//        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         
         let inputNode = audioEngine.inputNode
         

@@ -17,42 +17,44 @@ struct TranscriptView: View {
     @State private var showAlert: Bool = false
     @State private var showSheet: Bool = false
     var body: some View {
-        ZStack{
-            Image("Ali")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                .edgesIgnoringSafeArea(.top)
-            
-            VStack{
-                Image("Uccello")
+        VStack{
+            GeometryReader{  geometry in
+                Image("Ali")
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 150, height: 150)
-                    .offset(x: isActive ? -UIScreen.main.bounds.width : 0, y: 0)
-                    .animation(.easeInOut(duration: 1), value: isActive)
-                
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
+                    .edgesIgnoringSafeArea(.top)
+            }
+            
+            if (speechRecognizer.transcript != ""){
                 Text(speechRecognizer.transcript)
                     .frame(maxHeight: 200, alignment: .center)
                     .padding()
-                
-                Text(isActive ? "Tap Here to stop" : "Tap Here to transcribe")
-                    .font(.subheadline)
-                Button(action: {
-                    if !isActive{
-                        speechRecognizer.startTrascribe()
-                    }
-                    else {
-                        audioTranscript = speechRecognizer.transcript
-                        speechRecognizer.stopTrascribe()
-                        showAlert = true
-                    }
-                    isActive.toggle()
-                })
-                { //LABEL
-                    RecordButton()
+            }
+            Image("Uccello")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 150, height: 150, alignment: .center)
+                .offset(x: isActive ? UIScreen.main.bounds.width : 0, y: 0)
+                .animation(.easeInOut(duration: 1), value: isActive)
+                .padding()
+            
+            Text(isActive ? "Tap Here to stop" : "Tap Here to transcribe")
+                .font(.subheadline)
+            Button(action: {
+                if !isActive{
+                    speechRecognizer.startTrascribe()
                 }
-            }//END VSTACK
+                else {
+                    audioTranscript = speechRecognizer.transcript
+                    speechRecognizer.stopTrascribe()
+                    showAlert = true
+                }
+                isActive.toggle()
+            })
+            { //LABEL
+                RecordButton()
+            }
         }// END ZSTACK
         .alert("Do you want to save?", isPresented: $showAlert) {
             Button("Dont Save", role: .cancel) {}
@@ -61,6 +63,7 @@ struct TranscriptView: View {
         .sheet(isPresented: $showSheet, content: {
             ModalView(audioTranscript: audioTranscript, audioTitle: $audioTitle)
         })
+        .animation(.easeInOut, value: speechRecognizer.transcript)
     }
     
 }
