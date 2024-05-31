@@ -38,6 +38,8 @@ struct SavedRecords: View {
                         .onDelete(perform: deleteRecord)
                     }
                 }
+                
+                Spacer()
             }//END ZSTACK
             .navigationTitle("Library")
         }//END NAVIGATIONSTACK

@@ -25,10 +25,10 @@ struct ContentView: View {
             TabView{
                 SavedRecords()
                     .environmentObject(speechRecognizer)
-                    .tabItem { Label("Records", systemImage: "list.clipboard.fill") }
+                    .tabItem { Label("Library", systemImage: "book.circle") }
                 TranscriptView()
                     .environmentObject(speechRecognizer)
-                    .tabItem { Label("Play", systemImage: "play.fill") }
+                    .tabItem { Label("Record", systemImage: "waveform.circle") }
                 SettingsView()
                     .environmentObject(speechRecognizer)
                     .tabItem { Label("Settings", systemImage: "gear") }
