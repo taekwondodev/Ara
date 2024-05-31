@@ -205,7 +205,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D416DEA82BF79C010082E475 /* Build configuration list for PBXProject "Deaf" */;
+			buildConfigurationList = D416DEA82BF79C010082E475 /* Build configuration list for PBXProject "Parrot" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -469,7 +469,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D416DEA82BF79C010082E475 /* Build configuration list for PBXProject "Deaf" */ = {
+		D416DEA82BF79C010082E475 /* Build configuration list for PBXProject "Parrot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D416DEB92BF79C020082E475 /* Debug */,

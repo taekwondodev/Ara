@@ -19,6 +19,7 @@ struct SavedRecords: View {
         NavigationStack{
             VStack{
                 Ali()
+                    .edgesIgnoringSafeArea(.top)
                 
                 //MARK: List of AudioRecordings
                 if (audioRecords.isEmpty){
