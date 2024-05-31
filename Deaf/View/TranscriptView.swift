@@ -9,10 +9,12 @@ import SwiftUI
 
 struct TranscriptView: View {
     @EnvironmentObject var speechRecognizer: SpeechRecognizer
+    @Environment(AudioRecord.self) private var audioRecorder
     
     @State var audioTranscript: String = ""
     @State var audioTitle: String = ""
     
+    @AppStorage("OpenAi") var openAI: Bool = false
     @State private var isActive: Bool = false
     @State private var showAlert: Bool = false
     @State private var showSheet: Bool = false
@@ -66,4 +68,7 @@ struct TranscriptView: View {
         .animation(.easeInOut, value: speechRecognizer.transcript)
     }
     
+    func switchRecords(openAI: Bool){
+        ///se openAI attivo fai le opzioni di openAI altrimenti usi Speech
+    }
 }
