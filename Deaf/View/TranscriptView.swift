@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TranscriptView: View {
     @EnvironmentObject var speechRecognizer: SpeechRecognizer
-    @Environment(AudioRecord.self) private var audioRecorder
+    @Environment(AudioRecorder.self) private var audioRecorder: AudioRecorder
     
     @State var audioTranscript: String = ""
     @State var audioTitle: String = ""
@@ -44,14 +44,7 @@ struct TranscriptView: View {
             Text(isActive ? "Tap Here to stop" : "Tap Here to transcribe")
                 .font(.subheadline)
             Button(action: {
-                if !isActive{
-                    speechRecognizer.startTrascribe()
-                }
-                else {
-                    audioTranscript = speechRecognizer.transcript
-                    speechRecognizer.stopTrascribe()
-                    showAlert = true
-                }
+                switchRecords(openAI: openAI)
                 isActive.toggle()
             })
             { //LABEL
@@ -70,5 +63,44 @@ struct TranscriptView: View {
     
     func switchRecords(openAI: Bool){
         ///se openAI attivo fai le opzioni di openAI altrimenti usi Speech
+        if !openAI{
+            if !isActive{
+                speechRecognizer.startTrascribe()
+            }
+            else {
+                audioTranscript = speechRecognizer.transcript
+                speechRecognizer.stopTrascribe()
+                showAlert = true
+            }
+        }
+        else {
+            ///chiamata openAI
+            if !isActive{
+                audioRecorder.record()
+            }
+            else {
+                audioRecorder.stopRecording { audioData  in
+                    guard let audioData = audioData else {
+                        print("Recorded File is unavailable")
+                        return
+                    }
+                    openAICall(audioTranscript: audioTranscript, audioData: audioData)
+                    showAlert = true
+                }
+            }
+        }
+    }
+    
+    func openAICall(audioTranscript: String, audioData: Data){
+        Task{
+            do{
+               let response = try await OpenAIClassifier.sendPromptToWhisper(audioFile: audioData)
+                DispatchQueue.main.async{
+                    self.audioTranscript = response
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
 }

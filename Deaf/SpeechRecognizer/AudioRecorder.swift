@@ -61,10 +61,10 @@ class AudioRecorder: NSObject{
         }
     }
     
-    func stopRecording(completion: (String?) -> Void){
+    func stopRecording(completion: (Data?) -> Void){
         self.audioRecorder?.stop()
-        let fileName = FileSystemManager.saveRecordingFile()
-        completion(fileName)
+        let audioData = FileSystemManager.saveRecordingFile()
+        completion(audioData)
         
         self.isRecording = false
     }
