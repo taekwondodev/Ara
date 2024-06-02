@@ -9,18 +9,20 @@ import SwiftUI
 
 struct Ali: View {
     var body: some View {
-        ZStack{
-            GeometryReader { geometry in
+        GeometryReader { geometry in
+            ZStack{
+                Color.white.opacity(0.6)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: geometry.size.height, alignment: .top)
+                    .edgesIgnoringSafeArea(.top)
+                
                 Image("Ali")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
                     .blur(radius: 15.0)
+                    .edgesIgnoringSafeArea(.top)
             }
-            
-            Color.white.opacity(0.6)
-                .frame(maxWidth: .infinity)
-                .frame(height: 315, alignment: .top)
         }
     }
 }

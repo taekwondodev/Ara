@@ -14,6 +14,9 @@ struct RecordView: View {
         VStack{
             Text(audioRecord.date.formatted(date: .long, time: .shortened))
                 .font(.subheadline)
+                .frame(alignment: .center)
+            
+            Spacer()
             
             VStack(alignment: .leading){
                 Text(audioRecord.title)
@@ -21,7 +24,10 @@ struct RecordView: View {
                 Text(audioRecord.transcript)
                     .font(.body)
             }
+            .frame(alignment: .leading)
             .padding(.top)
+            
+            Spacer()
         }
     }
 }

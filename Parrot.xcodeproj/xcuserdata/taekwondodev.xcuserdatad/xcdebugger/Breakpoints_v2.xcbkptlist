@@ -5,19 +5,17 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
          <BreakpointContent
-            uuid = "B1B5DD06-4488-410B-9300-5120E80E99D5"
-            shouldBeEnabled = "No"
+            uuid = "08E116AA-21A3-411F-A8BF-659A190EE778"
+            shouldBeEnabled = "Yes"
+            nameForDebugger = "cg"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Deaf/View/Ali.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "body"
-            landmarkType = "24">
+            symbolName = "CGPostError"
+            moduleName = "">
+            <Locations>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -47,7 +47,7 @@ class AudioRecorder: NSObject{
             self.requestMicrophoneAccess()
         }
         catch {
-            print("Error: \(error.localizedDescription)")
+            print("Error: \(error)")
         }
     }
     
@@ -61,10 +61,10 @@ class AudioRecorder: NSObject{
         }
     }
     
-    func stopRecording(completion: (Data?) -> Void){
+    func stopRecording(completion: (Data?, String?) -> Void){
         self.audioRecorder?.stop()
         let audioData = FileSystemManager.saveRecordingFile()
-        completion(audioData)
+        completion(audioData.0, audioData.1)
         
         self.isRecording = false
     }

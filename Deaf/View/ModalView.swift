@@ -16,34 +16,38 @@ struct ModalView: View {
     @Binding var audioTitle: String
     @FocusState private var focus: FormFieldFocus?
     var body: some View {
-        LazyVStack {
-            Form{
-                TextField("Enter Title", text: $audioTitle)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .focused($focus, equals: .title)
-                    .onSubmit {
-                        focus = .category
+        NavigationStack{
+            VStack {
+                Form{
+                    TextField("Enter Title", text: $audioTitle)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .focused($focus, equals: .title)
+                        .onSubmit {
+                            focus = .category
+                        }
+                    
+                    TextField("Enter Category", text: $audioTitle)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .focused($focus, equals: .category)
+                        .onAppear(perform: {
+                            focus = .title
+                        })
+                    
+                    HStack {
+                        Button("OK") {
+                            saveTranscript()
+                            dismiss()
+                        }
+                        .padding(.horizontal)
+                        
+                        Button("Cancel") { dismiss() }
+                            .padding(.horizontal)
                     }
-                
-                TextField("Enter Category", text: $audioTitle)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .focused($focus, equals: .category)
-                    .onAppear(perform: {
-                        focus = .title
-                    })
-            }
-            
-            HStack {
-                Button("OK") {
-                    saveTranscript()
-                    dismiss()
+                    .frame(maxWidth: .infinity)
+                    .padding()
                 }
-                .padding(.horizontal)
-                
-                Button("Cancel") { dismiss() }
-                    .padding(.horizontal)
             }
-            .padding()
+            .navigationTitle("Title")
         }
     }
     

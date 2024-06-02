@@ -17,32 +17,33 @@ struct SavedRecords: View {
     
     var body: some View {
         NavigationStack{
-            VStack{
-                Ali()
-                    .edgesIgnoringSafeArea(.top)
-                
-                //MARK: List of AudioRecordings
-                if (audioRecords.isEmpty){
-                    Text("No audio stored")
-                }
-                else{
-                    List{
-                        ForEach(audioRecords){ record in
-                            NavigationLink(destination: RecordView(audioRecord: record)) {
-                                VStack(alignment: .leading){
-                                    Text(record.title)
-                                        .font(.headline)
-                                    Text(record.date.formatted(date: .long, time: .shortened))
+            GeometryReader{geometry in
+                VStack{
+                    Ali()
+                    
+                    //MARK: List of AudioRecordings
+                    if (audioRecords.isEmpty){
+                        Text("No audio stored")
+                    }
+                    else{
+                        List{
+                            ForEach(audioRecords){ record in
+                                NavigationLink(destination: RecordView(audioRecord: record)) {
+                                    VStack(alignment: .leading){
+                                        Text(record.title)
+                                            .font(.headline)
+                                        Text(record.date.formatted(date: .long, time: .shortened))
+                                    }
                                 }
                             }
+                            .onDelete(perform: deleteRecord)
                         }
-                        .onDelete(perform: deleteRecord)
+                        .frame(height: max(0, geometry.size.height - 120))
                     }
-                }
-                
-                Spacer()
-            }//END ZSTACK
-            .navigationTitle("Library")
+                    
+                }//END VSTACK
+                .navigationTitle("Library")
+            }//END GEOMETRY
         }//END NAVIGATIONSTACK
     }
     

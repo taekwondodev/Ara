@@ -47,7 +47,7 @@ class FileSystemManager{
         return FileManager.default.fileExists(atPath: recordingsDirectoryURL.relativePath, isDirectory: &isDirectory) && isDirectory.boolValue
     }
     
-    static func saveRecordingFile() -> Data? {
+    static func saveRecordingFile() -> (Data?, String?) {
         let recordingTempURL = getRecordingTempURL()
         let fileName = UUID().uuidString + "." + recordingTempURL.pathExtension
         
@@ -56,26 +56,26 @@ class FileSystemManager{
                 try self.makeRecordingsDirectory()
             }
             catch{
-                return nil
+                return (nil, nil)
             }
         }
         
-        guard let recordingsDir = self.getRecordingsDirectoryURL() else {return nil}
+        guard let recordingsDir = self.getRecordingsDirectoryURL() else {return (nil, nil)}
         let target = recordingsDir.appending(path: fileName)
         
         do {
             try FileManager.default.moveItem(at: recordingTempURL, to: target)
         }
         catch {
-            return nil
+            return (nil, nil)
         }
         
         guard let audioData = try? Data(contentsOf: target) else {
             print("Impossibile convertire il file")
-            return nil
+            return (nil, nil)
         }
         
-        return audioData
+        return (audioData, fileName)
     }
     
     static func getRecordingURL(_ fileName: String) -> URL? {

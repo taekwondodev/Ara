@@ -8,7 +8,7 @@
 import Foundation
 
 class OpenAIClassifier {
-    static func generateWhisperURLRequest(httpMethod: HTTPMethod, audioFile: Data) throws -> URLRequest {
+    static func generateWhisperURLRequest(httpMethod: HTTPMethod, audioFile: Data, fileName: String) throws -> URLRequest {
         ///url API Whisper Endpoint
         guard let url = URL(string: "https://api.openai.com/v1/audio/transcriptions") else {
             throw URLError(.badURL)
@@ -19,29 +19,73 @@ class OpenAIClassifier {
         urlRequest.httpMethod = httpMethod.rawValue
         
         //Header
-        urlRequest.addValue("applicaton/json", forHTTPHeaderField: "Content-Type")  //deve restituire un json
+        let boundary = "Boundary-\(UUID().uuidString)"
+        urlRequest.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        // urlRequest.addValue("applicaton/json", forHTTPHeaderField: "Content-Type")  //deve restituire un json
         urlRequest.addValue("Bearer \(Secrets.apiKey)", forHTTPHeaderField: "Authorization")  //apiKey
         
         //Body
         ///Body in chiamata GET vuoto perchè stai mandando, in chamata POST quello che ti deve tornare
-        let body = WhisperCall(nameModel: "whisper-1", audioFile: audioFile)
-        let jsonData = try JSONEncoder().encode(body)
-        urlRequest.httpBody = jsonData
+        var body = Data()
+        let parameters: [String: String] = [
+            "model": "whisper-1"
+        ]
+        
+        for (key, value) in parameters {
+            body.append("--\(boundary)\r\n".data(using: .utf8)!)
+            body.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8)!)
+            body.append("\(value)\r\n".data(using: .utf8)!)
+        }
+        
+        // Add audio file
+        body.append("--\(boundary)\r\n".data(using: .utf8)!)
+        body.append("Content-Disposition: form-data; name=\"file\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
+        body.append("Content-Type: application/octet-stream\r\n\r\n".data(using: .utf8)!)
+        body.append(audioFile)
+        body.append("\r\n".data(using: .utf8)!)
+        
+        body.append("--\(boundary)--\r\n".data(using: .utf8)!)
+        
+        //let body = WhisperCall(model: "whisper-1", file: audioFile.base64EncodedData())
+        //let jsonData = try JSONEncoder().encode(body)
+//        urlRequest.httpBody = jsonData
+        urlRequest.httpBody = body
         
         return urlRequest
     }
     
-    static func sendPromptToWhisper(audioFile: Data) async throws -> String{
-        let urlRequest = try generateWhisperURLRequest(httpMethod: .post, audioFile: audioFile)
+    static func sendPromptToWhisper(audioFile: Data, fileName: String) async throws -> String{
+        let urlRequest = try generateWhisperURLRequest(httpMethod: .post, audioFile: audioFile, fileName: fileName)
         
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        let (data, response) = try await URLSession.shared.data(for: urlRequest)
         
-        //data -> è il file json risultante
-        let response = try JSONDecoder().decode(WhisperResponse.self, from: data)
-        print(String(data: data, encoding: .utf8)!)
-        print(response)
+        guard let response = response as? HTTPURLResponse else {
+            throw URLError(.badServerResponse)
+        }
         
-        return response.text
+        guard (200...299).contains(response.statusCode) else {
+            // Handle HTTP errors
+            print("HTTP Error: \(response.statusCode)")
+            throw URLError(.badServerResponse)
+        }
+        
+        do {
+            //data -> è il file json risultante
+            let response = try JSONDecoder().decode(WhisperResponse.self, from: data)
+            print(String(data: data, encoding: .utf8)!)
+            print(response)
+            
+            return response.text
+        }
+        catch {
+            if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                // Handle error response from API
+                print("API Error: \(errorResponse.error.message)")
+                throw URLError(.cannotDecodeContentData)
+            }
+            print("Decoding Error: \(error.localizedDescription)")
+            throw error
+        }
     }
     
     enum HTTPMethod: String {
@@ -51,17 +95,21 @@ class OpenAIClassifier {
 }
 
 ///PER IL BODY DI CHATGPT, ti devi far passare message come parametro
-struct GPTMessage: Encodable {
-    let role: String
-    let content: String
-}
-
 struct WhisperCall: Encodable {
-    let nameModel: String
-    let audioFile: Data
+    let model: String
+    let file: Data
 }
 
 ///RESPONSE
 struct WhisperResponse: Decodable{
     let text: String
+}
+
+///ERROR
+struct ErrorResponse: Decodable {
+    let error: APIError
+}
+
+struct APIError: Decodable {
+    let message: String
 }

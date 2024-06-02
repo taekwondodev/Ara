@@ -79,27 +79,29 @@ struct TranscriptView: View {
                 audioRecorder.record()
             }
             else {
-                audioRecorder.stopRecording { audioData  in
+                audioRecorder.stopRecording { audioData, fileName   in
                     guard let audioData = audioData else {
                         print("Recorded File is unavailable")
                         return
                     }
-                    openAICall(audioTranscript: audioTranscript, audioData: audioData)
+                    if let fileName = fileName {
+                        openAICall(audioTranscript: audioTranscript, audioData: audioData, fileName: fileName)
+                    }
                     showAlert = true
                 }
             }
         }
     }
     
-    func openAICall(audioTranscript: String, audioData: Data){
+    func openAICall(audioTranscript: String, audioData: Data, fileName: String){
         Task{
             do{
-               let response = try await OpenAIClassifier.sendPromptToWhisper(audioFile: audioData)
+                let response = try await OpenAIClassifier.sendPromptToWhisper(audioFile: audioData, fileName: fileName)
                 DispatchQueue.main.async{
                     self.audioTranscript = response
                 }
             } catch {
-                print(error.localizedDescription)
+                print(error)
             }
         }
     }
