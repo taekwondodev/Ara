@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecordView: View {
-    let audioRecord: AudioRecord
+    @Bindable var audioRecord: AudioRecord
     
     var body: some View {
         VStack{
@@ -19,9 +19,9 @@ struct RecordView: View {
             Spacer()
             
             VStack(alignment: .leading){
-                Text(audioRecord.title)
+                TextEditor(text: $audioRecord.title)
                     .font(.title)
-                Text(audioRecord.transcript)
+                TextEditor(text: $audioRecord.transcript)
                     .font(.body)
             }
             .frame(alignment: .leading)
