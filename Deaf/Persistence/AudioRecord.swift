@@ -13,10 +13,12 @@ class AudioRecord{
     var title: String
     var transcript: String
     var date: Date
+    var category: String
     
-    init(title: String, transcript: String) {
+    init(title: String, transcript: String, category: String) {
         self.title = title
         self.transcript = transcript
         self.date = Date()
+        self.category = category
     }
 }

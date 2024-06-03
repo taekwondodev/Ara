@@ -13,7 +13,8 @@ struct SavedRecords: View {
     
     //MARK: SWIFT DATA
     @Environment(\.modelContext) var modelContext
-    @Query(sort: [SortDescriptor(\AudioRecord.date, order: .reverse)]) var audioRecords: [AudioRecord]
+    @Query(sort: [SortDescriptor(\AudioRecord.category, order: .reverse),
+                  SortDescriptor(\AudioRecord.date, order: .reverse)]) var audioRecords: [AudioRecord]
     
     var body: some View {
         NavigationStack{
@@ -45,6 +46,7 @@ struct SavedRecords: View {
                 .navigationTitle("Library")
             }//END GEOMETRY
         }//END NAVIGATIONSTACK
+        .animation(.easeInOut, value: audioRecords)
     }
     
     //MARK: Swift Data Function

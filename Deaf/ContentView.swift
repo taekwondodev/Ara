@@ -17,11 +17,11 @@ struct ContentView: View {
         UITabBar.appearance().backgroundImage = UIImage()
     }
     var audioRecorder = AudioRecorder()
-    @State var isOnboarding = true
+    @AppStorage("isOnboarding") var isOnboarding = true
     
     var body: some View {
         if isOnboarding {
-            OnBoardingView(isOnboarded: $isOnboarding)
+            OnBoardingView()
         }
         else {
             TabView{
@@ -35,9 +35,6 @@ struct ContentView: View {
                     .environmentObject(speechRecognizer)
                     .environment(audioRecorder)
                     .tabItem { Label("Record", systemImage: "waveform.circle") }
-                SettingsView()
-                    .environmentObject(speechRecognizer)
-                    .tabItem { Label("Settings", systemImage: "gear") }
             }
         }
     }

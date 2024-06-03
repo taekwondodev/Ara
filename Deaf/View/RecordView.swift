@@ -19,7 +19,7 @@ struct RecordView: View {
             Spacer()
             
             VStack(alignment: .leading){
-                TextEditor(text: $audioRecord.title)
+                TextField("Title", text: $audioRecord.title)
                     .font(.title)
                 TextEditor(text: $audioRecord.transcript)
                     .font(.body)

@@ -15,6 +15,15 @@
             symbolName = "CGPostError"
             moduleName = "">
             <Locations>
+               <Location
+                  uuid = "08E116AA-21A3-411F-A8BF-659A190EE778 - 6b2a6ff60c6dfa83"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CGPostError"
+                  moduleName = "CoreGraphics"
+                  usesParentBreakpointCondition = "Yes">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>

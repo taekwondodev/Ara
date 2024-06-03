@@ -21,7 +21,7 @@ private let onBoardingSteps = [
 
 struct OnBoardingView: View {
     @State private var currentStep = 0
-    @Binding var isOnboarded: Bool
+    @AppStorage("isOnboarding") var isOnboarding = true
     
     var body: some View {
         
@@ -82,7 +82,7 @@ struct OnBoardingView: View {
                     currentStep += 1
                 } else {
                     // Action for "Get started", e.g., navigate to another view
-                    isOnboarded = false
+                    isOnboarding = false
                 }
             }) {
                 Text(currentStep < onBoardingSteps.count - 1 ? "Next" : "Get started")
@@ -97,8 +97,4 @@ struct OnBoardingView: View {
             }.buttonStyle(PlainButtonStyle())
         }
     }
-}
-
-#Preview {
-    OnBoardingView(isOnboarded: .constant(true))
 }

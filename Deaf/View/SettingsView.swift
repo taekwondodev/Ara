@@ -20,10 +20,14 @@ struct SettingsView: View {
             }
             
             Button(action: {
-                openAI.toggle()
+                //openAI.toggle()  lock at moment
             }, label: {
-                Text("OpenAI")
-                    .foregroundStyle(openAI ? .red : .blue)
+                HStack{
+                    Text("Unlock pro")
+                    // .foregroundStyle(openAI ? .red : .blue)
+                    
+                    Image(systemName: "lock")
+                }
             })
         }//END VSTACK
     }

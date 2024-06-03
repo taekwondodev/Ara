@@ -13,7 +13,9 @@ struct ModalView: View {
     @Environment(\.modelContext) var modelContext
     
     let audioTranscript: String
-    @Binding var audioTitle: String
+    @State var audioTitle: String = ""
+    @State var audioCategory: String = ""
+    
     @FocusState private var focus: FormFieldFocus?
     var body: some View {
         NavigationStack{
@@ -26,25 +28,22 @@ struct ModalView: View {
                             focus = .category
                         }
                     
-                    TextField("Enter Category", text: $audioTitle)
+                    TextField("Enter Category", text: $audioCategory)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .focused($focus, equals: .category)
+                        .focused($focus, equals: .title)
                         .onAppear(perform: {
                             focus = .title
                         })
-                    
-                    HStack {
-                        Button("OK") {
-                            saveTranscript()
-                            dismiss()
-                        }
-                        .padding(.horizontal)
-                        
-                        Button("Cancel") { dismiss() }
-                            .padding(.horizontal)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding()
+                }
+            }
+            .toolbar{
+                ToolbarItem(placement: .automatic) {
+                    Button(action: {
+                        saveTranscript()
+                        dismiss()
+                    }, label: {
+                        Text("Save")
+                    })
                 }
             }
             .navigationTitle("Title")
@@ -53,11 +52,13 @@ struct ModalView: View {
     
     func saveTranscript() {
         let newRecord = AudioRecord(title: audioTitle == "" ? "New transcript" : audioTitle,
-                                    transcript: audioTranscript)
+                                    transcript: audioTranscript,
+                                    category: audioCategory == "" ? "No group" : audioCategory)
         modelContext.insert(newRecord)
     }
     
     enum FormFieldFocus: Hashable{
-        case title, category
+        case title
+        case category
     }
 }
