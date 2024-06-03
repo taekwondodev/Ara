@@ -30,7 +30,7 @@ struct ModalView: View {
                     
                     TextField("Enter Category", text: $audioCategory)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .focused($focus, equals: .title)
+                        .focused($focus, equals: .category)
                         .onAppear(perform: {
                             focus = .title
                         })

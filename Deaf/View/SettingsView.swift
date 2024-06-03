@@ -13,22 +13,25 @@ struct SettingsView: View {
     
     var body: some View {
         VStack{
-            Picker("Choose lang", selection: $speechRecognizer.language) {
-                ForEach(SpeechRecognizer.Language.allCases, id: \.self){ lang in
-                    Text(lang.rawValue.capitalized)
+            HStack{
+                Text("Language:")
+                Picker("Choose lang", selection: $speechRecognizer.language) {
+                    ForEach(SpeechRecognizer.Language.allCases, id: \.self){ lang in
+                        Text(lang.rawValue.capitalized)
+                    }
                 }
             }
+            .padding()
             
             Button(action: {
                 //openAI.toggle()  lock at moment
             }, label: {
                 HStack{
                     Text("Unlock pro")
-                    // .foregroundStyle(openAI ? .red : .blue)
-                    
                     Image(systemName: "lock")
                 }
             })
+            .padding()
         }//END VSTACK
     }
 }
