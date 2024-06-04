@@ -36,38 +36,14 @@ struct SavedRecords: View {
         NavigationStack{
             GeometryReader{geometry in
                 ZStack{
-                    Image("Ali")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
-                        .opacity(0.6)
-                        .blur(radius: 15.0)
-                        .edgesIgnoringSafeArea(.top)
+                    Ali(geometry: geometry)
                     
                     //MARK: List of AudioRecordings
                     if (audioRecords.isEmpty){
                         Text("No audio stored")
                     }
                     else{
-                        List{
-                            ForEach(groupedAudio.keys.sorted(), id: \.self){ category in
-                                Section(header: Text(category).font(.title).bold()) {
-                                    ForEach(groupedAudio[category] ?? []) { record in
-                                        NavigationLink(destination: RecordView(audioRecord: record)) {
-                                            VStack(alignment: .leading){
-                                                Text(record.title)
-                                                    .font(.headline)
-                                                Text(record.date.formatted(date: .long, time: .shortened))
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            .listRowBackground(Color.clear)
-                            .onDelete(perform: deleteRecord)
-                        }
-                        .frame(height: max(0, geometry.size.height - 220), alignment: .center)
-                        .listStyle(.plain)
+                        audioListView(geometry: geometry)
                     }
                     
                 }//END ZSTACK
@@ -78,6 +54,27 @@ struct SavedRecords: View {
         .animation(.easeInOut, value: audioRecords)
     }
     
+    func audioListView(geometry: GeometryProxy) -> some View {
+        List{
+            ForEach(groupedAudio.keys.sorted(), id: \.self){ category in
+                Section(header: Text(category).font(.title).bold()) {
+                    ForEach(groupedAudio[category] ?? []) { record in
+                        NavigationLink(destination: RecordView(audioRecord: record)) {
+                            VStack(alignment: .leading){
+                                Text(record.title)
+                                    .font(.headline)
+                                Text(record.date.formatted(date: .long, time: .shortened))
+                            }
+                        }
+                    }
+                }
+            }
+            .onDelete(perform: deleteRecord)
+            .listRowBackground(Color.clear)
+        }
+        .frame(height: max(0, geometry.size.height - 220), alignment: .center)
+        .listStyle(.plain)
+    }
     //MARK: Swift Data Function
     func deleteRecord(indexSet: IndexSet){
         for index in indexSet{

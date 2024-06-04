@@ -1,7 +1,14 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "and" : {
+
+    },
+    "Billed" : {
+
+    },
     "Choose lang" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -81,6 +88,9 @@
         }
       }
     },
+    "Generate" : {
+
+    },
     "Get started" : {
       "localizations" : {
         "en" : {
@@ -97,7 +107,11 @@
         }
       }
     },
+    "Language" : {
+
+    },
     "Language: " : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -161,6 +175,18 @@
         }
       }
     },
+    "Not Available" : {
+
+    },
+    "One Year Subscription" : {
+
+    },
+    "Parrot Pro" : {
+
+    },
+    "Pro Plan" : {
+
+    },
     "Record" : {
       "localizations" : {
         "en" : {
@@ -208,6 +234,12 @@
           }
         }
       }
+    },
+    "Smart Recap" : {
+
+    },
+    "Synthesis" : {
+
     },
     "Tap Here to stop" : {
       "localizations" : {
@@ -258,6 +290,7 @@
       }
     },
     "Unlock pro" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -272,6 +305,15 @@
           }
         }
       }
+    },
+    "UPGRADE YOUR PLAN" : {
+
+    },
+    "Yearly" : {
+
+    },
+    "Yet" : {
+
     }
   },
   "version" : "1.0"
