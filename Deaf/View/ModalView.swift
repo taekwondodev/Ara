@@ -22,14 +22,18 @@ struct ModalView: View {
             VStack {
                 Form{
                     TextField("Enter Title", text: $audioTitle)
+                        .clipShape(RoundedRectangle(cornerRadius: 13))
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 2)
                         .focused($focus, equals: .title)
                         .onSubmit {
                             focus = .category
                         }
                     
                     TextField("Enter Category", text: $audioCategory)
+                        .clipShape(RoundedRectangle(cornerRadius: 13))
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 2)
                         .focused($focus, equals: .category)
                         .onAppear(perform: {
                             focus = .title

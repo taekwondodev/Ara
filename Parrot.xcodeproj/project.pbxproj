@@ -12,7 +12,6 @@
 		D416DEB32BF79C010082E475 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416DEB22BF79C010082E475 /* ContentView.swift */; };
 		D416DEB52BF79C020082E475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D416DEB42BF79C020082E475 /* Assets.xcassets */; };
 		D416DEBF2BF7A0D00082E475 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416DEBE2BF7A0D00082E475 /* SpeechRecognizer.swift */; };
-		D44395FC2C08B060004929BB /* Ali.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44395FB2C08B060004929BB /* Ali.swift */; };
 		D452ED272C061B9F00C592D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D452ED262C061B9F00C592D3 /* Preview Assets.xcassets */; };
 		D47F335E2C07BDCF00A82C02 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47F335D2C07BDCF00A82C02 /* ModalView.swift */; };
 		D47F33602C07BF7C00A82C02 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47F335F2C07BF7C00A82C02 /* RecordButton.swift */; };
@@ -24,6 +23,7 @@
 		D4C66D6A2C020DEE00B585E4 /* TranscriptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C66D692C020DEE00B585E4 /* TranscriptView.swift */; };
 		D4DDE5A32C04BAF1002E0E74 /* AudioRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DDE5A22C04BAF1002E0E74 /* AudioRecord.swift */; };
 		D4E01D8F2C0E5A190018135B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D4E01D8E2C0E5A190018135B /* Localizable.xcstrings */; };
+		D4E01D932C0F4AEB0018135B /* ProView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E01D922C0F4AEB0018135B /* ProView.swift */; };
 		D4E7EA092C09F43A00D6E33A /* FileSystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7EA082C09F43A00D6E33A /* FileSystemManager.swift */; };
 		D4E7EA0B2C09FA1D00D6E33A /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7EA0A2C09FA1D00D6E33A /* AudioRecorder.swift */; };
 		D4E7EA0D2C0B11FE00D6E33A /* OpenAIClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7EA0C2C0B11FE00D6E33A /* OpenAIClassifier.swift */; };
@@ -50,7 +50,6 @@
 		D416DEB22BF79C010082E475 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D416DEB42BF79C020082E475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D416DEBE2BF7A0D00082E475 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
-		D44395FB2C08B060004929BB /* Ali.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ali.swift; sourceTree = "<group>"; };
 		D44AD5E32BFB78C6008C00B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D452ED262C061B9F00C592D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D47F335D2C07BDCF00A82C02 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
@@ -63,6 +62,7 @@
 		D4C66D692C020DEE00B585E4 /* TranscriptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptView.swift; sourceTree = "<group>"; };
 		D4DDE5A22C04BAF1002E0E74 /* AudioRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecord.swift; sourceTree = "<group>"; };
 		D4E01D8E2C0E5A190018135B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		D4E01D922C0F4AEB0018135B /* ProView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProView.swift; sourceTree = "<group>"; };
 		D4E7EA082C09F43A00D6E33A /* FileSystemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemManager.swift; sourceTree = "<group>"; };
 		D4E7EA0A2C09FA1D00D6E33A /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		D4E7EA0C2C0B11FE00D6E33A /* OpenAIClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIClassifier.swift; sourceTree = "<group>"; };
@@ -136,13 +136,13 @@
 		D489EB362C061455005ABFBD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D4E01D922C0F4AEB0018135B /* ProView.swift */,
 				D489EB2F2C060610005ABFBD /* SettingsView.swift */,
 				D489EB312C06061D005ABFBD /* SavedRecords.swift */,
 				D489EB332C06097D005ABFBD /* RecordView.swift */,
 				D4C66D692C020DEE00B585E4 /* TranscriptView.swift */,
 				D47F335F2C07BF7C00A82C02 /* RecordButton.swift */,
 				D47F335D2C07BDCF00A82C02 /* ModalView.swift */,
-				D44395FB2C08B060004929BB /* Ali.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -253,11 +253,11 @@
 				D489EB322C06061D005ABFBD /* SavedRecords.swift in Sources */,
 				D489EB302C060610005ABFBD /* SettingsView.swift in Sources */,
 				D4E7EA0D2C0B11FE00D6E33A /* OpenAIClassifier.swift in Sources */,
+				D4E01D932C0F4AEB0018135B /* ProView.swift in Sources */,
 				D489EB342C06097D005ABFBD /* RecordView.swift in Sources */,
 				D47F335E2C07BDCF00A82C02 /* ModalView.swift in Sources */,
 				D4E7EA092C09F43A00D6E33A /* FileSystemManager.swift in Sources */,
 				D416DEB32BF79C010082E475 /* ContentView.swift in Sources */,
-				D44395FC2C08B060004929BB /* Ali.swift in Sources */,
 				D4DDE5A32C04BAF1002E0E74 /* AudioRecord.swift in Sources */,
 				D4C66D6A2C020DEE00B585E4 /* TranscriptView.swift in Sources */,
 				D4E7EA0F2C0B170E00D6E33A /* Secrets.swift in Sources */,

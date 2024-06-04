@@ -17,14 +17,18 @@ class SpeechRecognizer: NSObject, ObservableObject, SFSpeechRecognizerDelegate {
     private var task: SFSpeechRecognitionTask?
     private var recognizer: SFSpeechRecognizer?
     
+    @AppStorage("savedLanguage") var savedLanguage: Language = .english
     @Published var language: Language = .english{
         didSet{
             updateSpeechRecognizer()
+            savedLanguage = language
         }
     }
     
     override init(){
         super.init()
+        
+        self.language = savedLanguage
         updateSpeechRecognizer()
         
         Task(priority: .background) {

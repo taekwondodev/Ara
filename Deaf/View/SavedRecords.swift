@@ -35,8 +35,14 @@ struct SavedRecords: View {
     var body: some View {
         NavigationStack{
             GeometryReader{geometry in
-                VStack{
-                    Ali()
+                ZStack{
+                    Image("Ali")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
+                        .opacity(0.6)
+                        .blur(radius: 15.0)
+                        .edgesIgnoringSafeArea(.top)
                     
                     //MARK: List of AudioRecordings
                     if (audioRecords.isEmpty){
@@ -57,12 +63,14 @@ struct SavedRecords: View {
                                     }
                                 }
                             }
+                            .listRowBackground(Color.clear)
                             .onDelete(perform: deleteRecord)
                         }
-                        .frame(height: max(0, geometry.size.height - 120))
+                        .frame(height: max(0, geometry.size.height - 220), alignment: .center)
+                        .listStyle(.plain)
                     }
                     
-                }//END VSTACK
+                }//END ZSTACK
                 .navigationTitle("Library")
 //                .searchable(text: $searchAudio)
             }//END GEOMETRY
