@@ -16,21 +16,16 @@ struct SavedRecords: View {
     @Query var audioRecords: [AudioRecord]
     
     //MARK: VIEW PROPERTY
-//    @State var searchAudio: String = ""
-//    var queryAudio: [AudioRecord] {
-//        if searchAudio.isEmpty{
-//            return audioRecords
-//        }
-//        
-//        let queryAudio = audioRecords.compactMap { record in
-//            let titleContainsQuery = record.title.range(of: searchAudio, options: .caseInsensitive) != nil
-//            return titleContainsQuery ? record : nil
-//        }
-//        
-//        return queryAudio
-//    }
+    @State var searchAudio: String = ""
+    var filteredAudioRecords: [AudioRecord] {
+        if searchAudio.isEmpty {
+            return audioRecords
+        } else {
+            return audioRecords.filter { $0.title.contains(searchAudio) || $0.category.contains(searchAudio) }
+        }
+    }
     var groupedAudio: [String: [AudioRecord]] {
-        Dictionary(grouping: audioRecords, by: { $0.category })
+        Dictionary(grouping: filteredAudioRecords, by: { $0.category })
     }
     var body: some View {
         NavigationStack{
@@ -48,16 +43,15 @@ struct SavedRecords: View {
                     
                 }//END ZSTACK
                 .navigationTitle("Library")
-//                .searchable(text: $searchAudio)
+                .searchable(text: $searchAudio)
             }//END GEOMETRY
         }//END NAVIGATIONSTACK
-        .animation(.easeInOut, value: audioRecords)
     }
     
     func audioListView(geometry: GeometryProxy) -> some View {
         List{
             ForEach(groupedAudio.keys.sorted(), id: \.self){ category in
-                Section(header: Text(category).font(.title).bold()) {
+                Section(header: Text(category).font(.title).bold().foregroundStyle(.black)) {
                     ForEach(groupedAudio[category] ?? []) { record in
                         NavigationLink(destination: RecordView(audioRecord: record)) {
                             VStack(alignment: .leading){
@@ -67,19 +61,22 @@ struct SavedRecords: View {
                             }
                         }
                     }
+                    .onDelete { indexSet in
+                        deleteRecord(category: category, indexSet: indexSet)
+                    }
                 }
             }
-            .onDelete(perform: deleteRecord)
             .listRowBackground(Color.clear)
         }
-        .frame(height: max(0, geometry.size.height - 220), alignment: .center)
+        .background(Color.clear)
         .listStyle(.plain)
     }
     //MARK: Swift Data Function
-    func deleteRecord(indexSet: IndexSet){
+    func deleteRecord(category: String, indexSet: IndexSet){
         for index in indexSet{
-            let record = audioRecords[index]
-            modelContext.delete(record)
+            if let record = groupedAudio[category]?[index] {
+                modelContext.delete(record)
+            }
         }
     }
 }

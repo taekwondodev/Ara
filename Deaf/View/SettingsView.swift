@@ -14,7 +14,7 @@ struct SettingsView: View {
     @State var showLanguage: Bool = false
     @State var showPro: Bool = false
     var body: some View {
-        VStack{
+        VStack(alignment: .leading){
             Text("Pro Plan")
                 .font(.title)
                 .bold()
@@ -55,11 +55,15 @@ struct SettingsView: View {
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 2)
                     .overlay{
                         HStack{
-                            Image(assignFlag(lang: speechRecognizer.language))
+                            Text(assignFlag(lang: speechRecognizer.language))
                                 .padding(.horizontal)
+                            
+                            Spacer()
                             
                             Text(speechRecognizer.language.rawValue.capitalized)
                                 .padding(.horizontal)
+                            
+                            Spacer()
                         }
                     }
             })
@@ -76,24 +80,28 @@ struct SettingsView: View {
                             .cornerRadius(13)
                             .foregroundStyle(speechRecognizer.language == lang ? Color(red: 0.62, green: 0.90, blue: 0.87) : Color.white)
                             .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 2)
-                            .padding()
                             .overlay{
-                                //MARK: bandiera e language
                                 HStack{
-                                    Image(assignFlag(lang: lang))
+                                    Text(assignFlag(lang: lang))
                                         .padding(.horizontal)
+                                    
+                                    Spacer()
                                     
                                     Text(lang.rawValue.capitalized)
                                         .padding(.horizontal)
+                                    
+                                    Spacer()
                                 }
                             }
                             .onTapGesture {
                                 speechRecognizer.language = lang
                             }
+                            .padding()
                     }
                 }
             })
         }//END VSTACK
+        .padding(.horizontal)
     }
     
     func assignFlag(lang: SpeechRecognizer.Language) -> String {
@@ -108,10 +116,3 @@ struct SettingsView: View {
         }
     }
 }
-
-
-//                Picker("Choose lang", selection: $speechRecognizer.language) {
-//                    ForEach(SpeechRecognizer.Language.allCases, id: \.self){ lang in
-//                        Text(lang.rawValue.capitalized)
-//                    }
-//                }

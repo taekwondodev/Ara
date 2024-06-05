@@ -2,10 +2,24 @@
   "sourceLanguage" : "en",
   "strings" : {
     "and" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "e"
+          }
+        }
+      }
     },
     "Billed" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pagamento"
+          }
+        }
+      }
     },
     "Choose lang" : {
       "extractionState" : "stale",
@@ -89,7 +103,14 @@
       }
     },
     "Generate" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genera"
+          }
+        }
+      }
     },
     "Get started" : {
       "localizations" : {
@@ -108,7 +129,14 @@
       }
     },
     "Language" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lingua"
+          }
+        }
+      }
     },
     "Language: " : {
       "extractionState" : "stale",
@@ -176,16 +204,44 @@
       }
     },
     "Not Available" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non Disponibile"
+          }
+        }
+      }
     },
     "One Year Subscription" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iscrizione per un anno"
+          }
+        }
+      }
     },
     "Parrot Pro" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parrot Pro"
+          }
+        }
+      }
     },
     "Pro Plan" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Piano Pro"
+          }
+        }
+      }
     },
     "Record" : {
       "localizations" : {
@@ -236,10 +292,24 @@
       }
     },
     "Smart Recap" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recap intelligente"
+          }
+        }
+      }
     },
     "Synthesis" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sintesi"
+          }
+        }
+      }
     },
     "Tap Here to stop" : {
       "localizations" : {
@@ -307,13 +377,34 @@
       }
     },
     "UPGRADE YOUR PLAN" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiorna il tuo piano"
+          }
+        }
+      }
     },
     "Yearly" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuale"
+          }
+        }
+      }
     },
     "Yet" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Già"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
