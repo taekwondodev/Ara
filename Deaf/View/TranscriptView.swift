@@ -62,6 +62,7 @@ struct TranscriptView: View {
                 { //LABEL
                     RecordButton()
                 }
+                .sensoryFeedback(.selection, trigger: isActive)
             }// END VSTACK
             .alert("Do you want to save?", isPresented: $showAlert) {
                 Button("Don't Save", role: .cancel) {}
