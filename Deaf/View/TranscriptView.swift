@@ -30,18 +30,21 @@ struct TranscriptView: View {
                 }
                 
                 if (speechRecognizer.transcript != ""){
-                    ScrollViewReader{ proxy in
-                        ScrollView {
-                            Text(speechRecognizer.transcript)
-                                .id(speechRecognizer.transcript.count)
-                                .onChange(of: speechRecognizer.transcript) { _, _ in
-                                    if speechRecognizer.transcript.count > 500 { // cambia la lunghezza secondo necessità
-                                        withAnimation {
-                                            proxy.scrollTo(speechRecognizer.transcript.count, anchor: .bottom)
-                                        }
-                                    }
-                                }
-                        }.padding()
+//                    ScrollViewReader{ proxy in
+//                        ScrollView {
+//                            Text(speechRecognizer.transcript)
+//                                .id(speechRecognizer.transcript.count)
+//                                .onChange(of: speechRecognizer.transcript) { _, _ in
+//                                    if speechRecognizer.transcript.count > 500 { // cambia la lunghezza secondo necessità
+//                                        withAnimation {
+//                                            proxy.scrollTo(speechRecognizer.transcript.count, anchor: .bottom)
+//                                        }
+//                                    }
+//                                }
+//                        }.padding()
+//                    }
+                    ScrollView{
+                        Text(speechRecognizer.transcript)
                     }
                 }
                 

@@ -80,7 +80,10 @@ struct ProView: View {
             
             HStack{
                 Image("Uccello Pro")
-                Spacer()
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                
+               Spacer()
             }
         }
         .ignoresSafeArea()

@@ -13,7 +13,7 @@ struct Ali: View {
     var body: some View {
         Image("Ali")
             .resizable()
-            .aspectRatio(contentMode: .fit)
+            .aspectRatio(contentMode: .fill)
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
             .opacity(0.6)
             .blur(radius: 15.0)

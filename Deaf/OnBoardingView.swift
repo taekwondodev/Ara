@@ -42,6 +42,7 @@ struct OnBoardingView: View {
                     VStack {
                         Image(onBoardingSteps[index].image)  // Correctly use 'index' here
                             .resizable()
+                            .aspectRatio(contentMode: .fit)
                             .frame(width: 200, height: 230)
                         
                         Text(onBoardingSteps[index].title)  // Correctly use 'index' here

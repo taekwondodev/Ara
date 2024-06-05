@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D40D795C2C07626000D5764B /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D795B2C07626000D5764B /* OnBoardingView.swift */; };
 		D4159DC12C10F68800C9F1A3 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4159DC02C10F68800C9F1A3 /* GroupView.swift */; };
+		D4159DC32C11128F00C9F1A3 /* RettangoloGrigio.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4159DC22C11128F00C9F1A3 /* RettangoloGrigio.swift */; };
 		D416DEB12BF79C010082E475 /* DeafApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416DEB02BF79C010082E475 /* DeafApp.swift */; };
 		D416DEB32BF79C010082E475 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416DEB22BF79C010082E475 /* ContentView.swift */; };
 		D416DEB52BF79C020082E475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D416DEB42BF79C020082E475 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		D40D795B2C07626000D5764B /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		D4159DC02C10F68800C9F1A3 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
+		D4159DC22C11128F00C9F1A3 /* RettangoloGrigio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RettangoloGrigio.swift; sourceTree = "<group>"; };
 		D416DEAD2BF79C010082E475 /* Deaf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deaf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D416DEB02BF79C010082E475 /* DeafApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeafApp.swift; sourceTree = "<group>"; };
 		D416DEB22BF79C010082E475 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				D47F335F2C07BF7C00A82C02 /* RecordButton.swift */,
 				D47F335D2C07BDCF00A82C02 /* ModalView.swift */,
 				D4159DC02C10F68800C9F1A3 /* GroupView.swift */,
+				D4159DC22C11128F00C9F1A3 /* RettangoloGrigio.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				D489EB322C06061D005ABFBD /* SavedRecords.swift in Sources */,
 				D489EB302C060610005ABFBD /* SettingsView.swift in Sources */,
+				D4159DC32C11128F00C9F1A3 /* RettangoloGrigio.swift in Sources */,
 				D4159DC12C10F68800C9F1A3 /* GroupView.swift in Sources */,
 				D4E7EA0D2C0B11FE00D6E33A /* OpenAIClassifier.swift in Sources */,
 				D4E01D932C0F4AEB0018135B /* ProView.swift in Sources */,

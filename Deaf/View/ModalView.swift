@@ -16,28 +16,28 @@ struct ModalView: View {
     @State var audioTitle: String = ""
     @State var audioCategory: String = ""
     
+    @State var showGroup: Bool = false
     @FocusState private var focus: FormFieldFocus?
     var body: some View {
         NavigationStack{
             VStack {
-                Form{
-                    TextField("Enter Title", text: $audioTitle)
-                        .clipShape(RoundedRectangle(cornerRadius: 13))
-                        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 2)
-                        .focused($focus, equals: .title)
-                        .onSubmit {
-                            focus = .category
-                        }
-                    
-                    TextField("Enter Category", text: $audioCategory)
-                        .clipShape(RoundedRectangle(cornerRadius: 13))
-                        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 2)
-                        .focused($focus, equals: .category)
-                        .onAppear(perform: {
-                            focus = .title
-                        })
-                }
+                TextField("Enter Title", text: $audioTitle)
+                    .background(RettangoloGrigio())
+                    .padding()
+                    .focused($focus, equals: .title)
+                    .onSubmit {
+                        focus = .category
+                    }
+                
+                TextField("Enter Category", text: $audioCategory)
+                    .background(RettangoloGrigio())
+                    .padding()
+                    .focused($focus, equals: .category)
+                    .onAppear(perform: {
+                        focus = .title
+                    })
             }
+            .navigationTitle("Title")
             .toolbar{
                 ToolbarItem(placement: .automatic) {
                     Button(action: {
@@ -48,7 +48,6 @@ struct ModalView: View {
                     })
                 }
             }
-            .navigationTitle("Title")
         }
     }
     
