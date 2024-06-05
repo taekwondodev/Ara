@@ -72,6 +72,7 @@ struct SettingsView: View {
                     Text("Language")
                         .font(.title)
                         .bold()
+                        .padding(.horizontal)
                     
                     ForEach(SpeechRecognizer.Language.allCases, id: \.self){ lang in
                         Rectangle()

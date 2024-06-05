@@ -25,9 +25,6 @@ struct ContentView: View {
         }
         else {
             TabView{
-                SavedRecords()
-                    .environmentObject(speechRecognizer)
-                    .tabItem { Label("Library", systemImage: "book.circle") }
                 TranscriptView()
                     .task {
                         audioRecorder.setup()
@@ -35,6 +32,10 @@ struct ContentView: View {
                     .environmentObject(speechRecognizer)
                     .environment(audioRecorder)
                     .tabItem { Label("Record", systemImage: "waveform.circle") }
+                
+                SavedRecords()
+                    .environmentObject(speechRecognizer)
+                    .tabItem { Label("Library", systemImage: "book.circle") }
             }
         }
     }

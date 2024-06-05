@@ -44,7 +44,7 @@ struct ModalView: View {
                         saveTranscript()
                         dismiss()
                     }, label: {
-                        Text("Save")
+                        Text("Done")
                     })
                 }
             }

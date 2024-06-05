@@ -12,7 +12,6 @@ struct TranscriptView: View {
     @Environment(AudioRecorder.self) private var audioRecorder: AudioRecorder
     
     @State var audioTranscript: String = ""
-    //@State var audioTitle: String = ""
     
     @AppStorage("OpenAi") var openAI: Bool = false
     @State private var isActive: Bool = false
@@ -69,7 +68,6 @@ struct TranscriptView: View {
                 Button("Save", role: .none) { showSheet = true }
             }
             .sheet(isPresented: $showSheet, content: {
-                //ModalView(audioTranscript: audioTranscript, audioTitle: $audioTitle)
                 ModalView(audioTranscript: audioTranscript)
             })
             .toolbar{
