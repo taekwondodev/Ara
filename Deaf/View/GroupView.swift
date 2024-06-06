@@ -9,12 +9,17 @@ import SwiftUI
 import SwiftData
 
 struct GroupView: View {
+    @Environment(\.modelContext) var modelContext
     @Query var audioRecords: [AudioRecord]
     var savedGroup : [String]{
         return audioRecords.map { $0.category }
     }
     
+    let audioTranscript: String
+    let audioTitle: String
+    
     @Binding var newCategory: String
+    @Binding var showSheet: Bool
     var body: some View {
         NavigationStack{
             VStack{
@@ -23,6 +28,7 @@ struct GroupView: View {
                     ZStack(alignment: .leading) {
                         RettangoloGrigio(color: rettangoloColor)
                         Text(newGroup)
+                            .padding()
                     }
                     .padding()
                     .onTapGesture {
@@ -31,10 +37,28 @@ struct GroupView: View {
                 }
                 
                 TextField("Insert new category", text: $newCategory)
+                    .padding()
                     .background(RettangoloGrigio(color: Color(red: 0.94, green: 0.94, blue: 0.94)))
                     .padding()
             }//END VSTACK
             .navigationTitle("Group")
+            .toolbar{
+                ToolbarItem(placement: .automatic) {
+                    Button(action: {
+                        saveTranscript()
+                        showSheet = false
+                    }, label: {
+                        Text("Done")
+                    })
+                }
+            }
         }// END NAVIGATION STACK
+    }
+    
+    func saveTranscript() {
+        let newRecord = AudioRecord(title: audioTitle == "" ? "New transcript" : audioTitle,
+                                    transcript: audioTranscript,
+                                    category: newCategory == "" ? "No group" : newCategory)
+        modelContext.insert(newRecord)
     }
 }

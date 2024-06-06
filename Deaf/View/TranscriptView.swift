@@ -30,19 +30,6 @@ struct TranscriptView: View {
                 }
                 
                 if (speechRecognizer.transcript != ""){
-//                    ScrollViewReader{ proxy in
-//                        ScrollView {
-//                            Text(speechRecognizer.transcript)
-//                                .id(speechRecognizer.transcript.count)
-//                                .onChange(of: speechRecognizer.transcript) { _, _ in
-//                                    if speechRecognizer.transcript.count > 500 { // cambia la lunghezza secondo necessità
-//                                        withAnimation {
-//                                            proxy.scrollTo(speechRecognizer.transcript.count, anchor: .bottom)
-//                                        }
-//                                    }
-//                                }
-//                        }.padding()
-//                    }
                     ScrollView{
                         Text(speechRecognizer.transcript)
                             .padding()
@@ -57,7 +44,7 @@ struct TranscriptView: View {
                     .animation(.easeInOut(duration: 1), value: isActive)
                     .padding()
                 
-                Text(isActive ? "Tap Here to stop" : "Tap Here to transcribe")
+                Text(isActive ? "Tap here to stop" : "Tap here to transcribe")
                     .font(.subheadline)
                 Button(action: {
                     switchRecords(openAI: openAI)
@@ -73,7 +60,7 @@ struct TranscriptView: View {
                 Button("Save", role: .none) { showSheet = true }
             }
             .sheet(isPresented: $showSheet, content: {
-                ModalView(audioTranscript: audioTranscript)
+                ModalView(audioTranscript: audioTranscript, showSheet: $showSheet)
             })
             .toolbar{
                 ToolbarItem(placement: .automatic) {
