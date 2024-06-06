@@ -16,27 +16,28 @@ struct ModalView: View {
     @State var audioTitle: String = ""
     @State var audioCategory: String = ""
     
-    @State var showGroup: Bool = false
     @FocusState private var focus: FormFieldFocus?
     var body: some View {
         NavigationStack{
             VStack {
                 TextField("Enter Title", text: $audioTitle)
-                    .background(RettangoloGrigio())
+                    .background(RettangoloGrigio(color: Color(red: 0.94, green: 0.94, blue: 0.94)))
                     .padding()
                     .focused($focus, equals: .title)
-                    .onSubmit {
-                        focus = .category
-                    }
-                
-                TextField("Enter Category", text: $audioCategory)
-                    .background(RettangoloGrigio())
-                    .padding()
-                    .focused($focus, equals: .category)
                     .onAppear(perform: {
                         focus = .title
                     })
-            }
+                
+                NavigationLink {
+                    GroupView(newCategory: $audioCategory)
+                } label: {
+                    ZStack(alignment: .leading){
+                        RettangoloGrigio(color: Color(red: 0.94, green: 0.94, blue: 0.94))
+                        Text("Group")
+                    }
+                    .padding()
+                }
+            }//END VSTACK
             .navigationTitle("Title")
             .toolbar{
                 ToolbarItem(placement: .automatic) {
@@ -48,7 +49,7 @@ struct ModalView: View {
                     })
                 }
             }
-        }
+        }//END NAVIGATION STACK
     }
     
     func saveTranscript() {
@@ -60,6 +61,5 @@ struct ModalView: View {
     
     enum FormFieldFocus: Hashable{
         case title
-        case category
     }
 }

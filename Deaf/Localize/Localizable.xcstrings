@@ -71,9 +71,17 @@
       }
     },
     "Done" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fatto"
+          }
+        }
+      }
     },
     "Enter Category" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -127,6 +135,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Inizia"
+          }
+        }
+      }
+    },
+    "Group" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gruppo"
+          }
+        }
+      }
+    },
+    "Insert new category" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserisci nuovo gruppo"
           }
         }
       }

@@ -45,6 +45,7 @@ struct TranscriptView: View {
 //                    }
                     ScrollView{
                         Text(speechRecognizer.transcript)
+                            .padding()
                     }
                 }
                 
