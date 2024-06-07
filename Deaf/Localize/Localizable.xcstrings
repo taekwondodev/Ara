@@ -11,6 +11,9 @@
         }
       }
     },
+    "Ara Pro" : {
+
+    },
     "Billed" : {
       "localizations" : {
         "it" : {
@@ -255,6 +258,7 @@
       }
     },
     "Parrot Pro" : {
+      "extractionState" : "stale",
       "localizations" : {
         "it" : {
           "stringUnit" : {
@@ -343,7 +347,14 @@
       }
     },
     "Tap here to stop" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premi qui per fermare"
+          }
+        }
+      }
     },
     "Tap Here to stop" : {
       "extractionState" : "stale",
@@ -363,7 +374,14 @@
       }
     },
     "Tap here to transcribe" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premi qui per trascrivere"
+          }
+        }
+      }
     },
     "Tap Here to transcribe" : {
       "extractionState" : "stale",

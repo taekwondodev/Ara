@@ -53,7 +53,7 @@ struct TranscriptView: View {
                 { //LABEL
                     RecordButton()
                 }
-            }// END VSTACK
+            }//END VSTACK
             .sensoryFeedback(.success, trigger: isActive)
             .alert("Do you want to save?", isPresented: $showAlert) {
                 Button("Don't Save", role: .cancel) {}
@@ -117,7 +117,7 @@ struct TranscriptView: View {
             do{
                 let response = try await OpenAIClassifier.sendPromptToWhisper(audioFile: audioData, fileName: fileName)
                 DispatchQueue.main.async{
-                    self.audioTranscript = response
+                    self.speechRecognizer.transcript = response
                 }
             } catch {
                 print(error)

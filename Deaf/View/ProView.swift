@@ -12,7 +12,7 @@ struct ProView: View {
         VStack {
             Spacer()
             
-            Text("Parrot Pro")
+            Text("Ara Pro")
                 .font(Font.custom("SF Pro", size: 56))
                 .fontWeight(.bold)
                 .foregroundStyle(LinearGradient(gradient: Gradient(colors: [Color(red: 0, green: 0.78, blue: 0.75), Color(red: 0, green: 0.78, blue: 0.75), Color(red: 0.98, green: 0.66, blue: 0.02)]), startPoint: .leading, endPoint: .trailing))

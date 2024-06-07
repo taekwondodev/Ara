@@ -50,7 +50,7 @@
 		D40D795B2C07626000D5764B /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		D4159DC02C10F68800C9F1A3 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
 		D4159DC22C11128F00C9F1A3 /* RettangoloGrigio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RettangoloGrigio.swift; sourceTree = "<group>"; };
-		D416DEAD2BF79C010082E475 /* Parrot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parrot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D416DEAD2BF79C010082E475 /* Ara.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ara.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D416DEB02BF79C010082E475 /* DeafApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeafApp.swift; sourceTree = "<group>"; };
 		D416DEB22BF79C010082E475 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D416DEB42BF79C020082E475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 		D416DEAE2BF79C010082E475 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D416DEAD2BF79C010082E475 /* Parrot.app */,
+				D416DEAD2BF79C010082E475 /* Ara.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,9 +189,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D416DEAC2BF79C010082E475 /* Parrot */ = {
+		D416DEAC2BF79C010082E475 /* Ara */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D416DEBB2BF79C020082E475 /* Build configuration list for PBXNativeTarget "Parrot" */;
+			buildConfigurationList = D416DEBB2BF79C020082E475 /* Build configuration list for PBXNativeTarget "Ara" */;
 			buildPhases = (
 				D416DEA92BF79C010082E475 /* Sources */,
 				D416DEAA2BF79C010082E475 /* Frameworks */,
@@ -202,9 +202,9 @@
 			);
 			dependencies = (
 			);
-			name = Parrot;
+			name = Ara;
 			productName = Deaf;
-			productReference = D416DEAD2BF79C010082E475 /* Parrot.app */;
+			productReference = D416DEAD2BF79C010082E475 /* Ara.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -222,7 +222,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D416DEA82BF79C010082E475 /* Build configuration list for PBXProject "Parrot" */;
+			buildConfigurationList = D416DEA82BF79C010082E475 /* Build configuration list for PBXProject "Ara" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -236,7 +236,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D416DEAC2BF79C010082E475 /* Parrot */,
+				D416DEAC2BF79C010082E475 /* Ara */,
 			);
 		};
 /* End PBXProject section */
@@ -415,7 +415,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Deaf/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Parrot;
+				INFOPLIST_KEY_CFBundleDisplayName = Ara;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"Deaf need this info to Transcribe\"";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "\"Deaf need this info to Transcribe\"";
@@ -453,7 +453,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Deaf/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Parrot;
+				INFOPLIST_KEY_CFBundleDisplayName = Ara;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"Deaf need this info to Transcribe\"";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "\"Deaf need this info to Transcribe\"";
@@ -482,7 +482,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D416DEA82BF79C010082E475 /* Build configuration list for PBXProject "Parrot" */ = {
+		D416DEA82BF79C010082E475 /* Build configuration list for PBXProject "Ara" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D416DEB92BF79C020082E475 /* Debug */,
@@ -491,7 +491,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D416DEBB2BF79C020082E475 /* Build configuration list for PBXNativeTarget "Parrot" */ = {
+		D416DEBB2BF79C020082E475 /* Build configuration list for PBXNativeTarget "Ara" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D416DEBC2BF79C020082E475 /* Debug */,

@@ -29,7 +29,7 @@ struct SettingsView: View {
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, y: 2)
                     .overlay{
                         HStack{
-                            Text("Parrot Pro")
+                            Text("Ara Pro")
                                 .foregroundStyle(openAI ? .white: .black)
                                 .padding(.horizontal)
                             Text("One Year Subscription")
