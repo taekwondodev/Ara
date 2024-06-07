@@ -342,7 +342,11 @@
         }
       }
     },
+    "Tap here to stop" : {
+
+    },
     "Tap Here to stop" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -358,7 +362,11 @@
         }
       }
     },
+    "Tap here to transcribe" : {
+
+    },
     "Tap Here to transcribe" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
