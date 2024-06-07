@@ -53,7 +53,6 @@ struct TranscriptView: View {
                 { //LABEL
                     RecordButton()
                 }
-                .sensoryFeedback(.selection, trigger: isActive)
             }// END VSTACK
             .alert("Do you want to save?", isPresented: $showAlert) {
                 Button("Don't Save", role: .cancel) {}
@@ -77,6 +76,13 @@ struct TranscriptView: View {
                     .environmentObject(speechRecognizer)
             })
             .animation(.easeInOut, value: speechRecognizer.transcript)
+            .sensoryFeedback(trigger: isActive) { oldValue, newValue in
+                switch (oldValue, newValue){
+                case (false, true): return .start
+                case (true, false): return .stop
+                default: return nil
+                }
+            }
         }
     }
     
