@@ -19,39 +19,41 @@ struct ModalView: View {
     @FocusState private var focus: FormFieldFocus?
     var body: some View {
         NavigationStack{
-            VStack {
-                TextField("Enter Title", text: $audioTitle)
-                    .padding()
-                    .background(RettangoloGrigio(color: Color(red: 0.94, green: 0.94, blue: 0.94)))
-                    .padding()
-                    .focused($focus, equals: .title)
-                    .onAppear(perform: {
-                        focus = .title
-                    })
-                
-                NavigationLink {
-                    GroupView(audioTranscript: audioTranscript, audioTitle: audioTitle,
-                              newCategory: $audioCategory, showSheet: $showSheet)
-                } label: {
-                    ZStack(alignment: .leading){
-                        RettangoloGrigio(color: Color(red: 0.94, green: 0.94, blue: 0.94))
-                        Text("Group")
-                            .padding()
+            ScrollView{
+                VStack {
+                    TextField("Enter Title", text: $audioTitle)
+                        .padding()
+                        .background(RettangoloGrigio(color: Color(red: 0.94, green: 0.94, blue: 0.94)))
+                        .padding()
+                        .focused($focus, equals: .title)
+                        .onAppear(perform: {
+                            focus = .title
+                        })
+                    
+                    NavigationLink {
+                        GroupView(audioTranscript: audioTranscript, audioTitle: audioTitle,
+                                  newCategory: $audioCategory, showSheet: $showSheet)
+                    } label: {
+                        ZStack(alignment: .leading){
+                            RettangoloGrigio(color: Color(red: 0.94, green: 0.94, blue: 0.94))
+                            Text("Group")
+                                .padding()
+                        }
+                        .padding()
                     }
-                    .padding()
+                }//END VSTACK
+                .navigationTitle("Title")
+                .toolbar{
+                    ToolbarItem(placement: .automatic) {
+                        Button(action: {
+                            saveTranscript()
+                            showSheet = false
+                        }, label: {
+                            Text("Done")
+                        })
+                    }
                 }
-            }//END VSTACK
-            .navigationTitle("Title")
-            .toolbar{
-                ToolbarItem(placement: .automatic) {
-                    Button(action: {
-                        saveTranscript()
-                        showSheet = false
-                    }, label: {
-                        Text("Done")
-                    })
-                }
-            }
+            }//END SCROLL VIEW
         }//END NAVIGATION STACK
     }
     
