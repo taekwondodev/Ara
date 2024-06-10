@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var speechRecognizer: SpeechRecognizer
     @AppStorage("OpenAi") var openAI: Bool = false
     
@@ -30,9 +31,11 @@ struct SettingsView: View {
                     .overlay{
                         HStack{
                             Text("Ara Pro")
+                                .bold()
                                 .foregroundStyle(openAI ? .white: .black)
                                 .padding(.horizontal)
                             Text("One Year Subscription")
+                                .bold()
                                 .padding(.horizontal)
                         }
                     }
@@ -61,6 +64,7 @@ struct SettingsView: View {
                             Spacer()
                             
                             Text(speechRecognizer.language.rawValue.capitalized)
+                                .bold()
                                 .padding(.horizontal)
                             
                             Spacer()
@@ -89,6 +93,8 @@ struct SettingsView: View {
                                     Spacer()
                                     
                                     Text(lang.rawValue.capitalized)
+                                        .bold()
+                                        .foregroundStyle(.black)
                                         .padding(.horizontal)
                                     
                                     Spacer()

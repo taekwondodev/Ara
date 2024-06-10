@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct SavedRecords: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var speechRecognizer: SpeechRecognizer
     
     //MARK: SWIFT DATA
@@ -52,7 +53,7 @@ struct SavedRecords: View {
     func audioListView(geometry: GeometryProxy) -> some View {
         List{
             ForEach(groupedAudio.keys.sorted(), id: \.self){ category in
-                Section(header: Text(category).font(.title).bold().foregroundStyle(.black)) {
+                Section(header: Text(category).font(.title).bold().foregroundStyle(colorScheme == .dark ? .white : .black)) {
                     ForEach(groupedAudio[category] ?? []) { record in
                         NavigationLink(destination: RecordView(audioRecord: record)) {
                             VStack(alignment: .leading){

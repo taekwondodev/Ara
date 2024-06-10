@@ -30,6 +30,7 @@ struct GroupView: View {
                         ZStack(alignment: .leading) {
                             RettangoloGrigio(color: rettangoloColor)
                             Text(newGroup)
+                                .foregroundStyle(.black)
                                 .padding()
                         }
                         .padding()

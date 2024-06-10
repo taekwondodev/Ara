@@ -22,6 +22,7 @@ struct ModalView: View {
             ScrollView{
                 VStack {
                     TextField("Enter Title", text: $audioTitle)
+                        .foregroundStyle(.black)
                         .padding()
                         .background(RettangoloGrigio(color: Color(red: 0.94, green: 0.94, blue: 0.94)))
                         .padding()
