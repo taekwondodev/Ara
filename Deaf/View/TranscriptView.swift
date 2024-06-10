@@ -45,7 +45,7 @@ struct TranscriptView: View {
                         .offset(x: isActive ? UIScreen.main.bounds.width : 0, y: 0)
                         .animation(.easeInOut(duration: 1), value: isActive)
                         .padding()
-                }
+                }//END ZSTACK
                 
                 Text(isActive ? "Tap here to stop" : "Tap here to transcribe")
                     .font(.subheadline)
