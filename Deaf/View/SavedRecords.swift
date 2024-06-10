@@ -39,6 +39,7 @@ struct SavedRecords: View {
                     }
                     else{
                         audioListView(geometry: geometry)
+                            .padding(.bottom, 50)
                     }
                     
                 }//END ZSTACK

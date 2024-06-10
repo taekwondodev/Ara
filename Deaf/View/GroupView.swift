@@ -12,53 +12,69 @@ struct GroupView: View {
     @Environment(\.modelContext) var modelContext
     @Query var audioRecords: [AudioRecord]
     var savedGroup : [String]{
-        return audioRecords.map { $0.category }
+        return Array(Set(audioRecords.map { $0.category }))
     }
     
     let audioTranscript: String
     let audioTitle: String
+    @State var groupTextField: String = ""
     
     @Binding var newCategory: String
     @Binding var showSheet: Bool
     var body: some View {
         NavigationStack{
-            VStack{
-                ForEach(savedGroup, id: \.self){ newGroup in
-                    let rettangoloColor = newCategory == newGroup ? Color(red: 0.62, green: 0.90, blue: 0.87) : Color(red: 0.94, green: 0.94, blue: 0.94)
-                    ZStack(alignment: .leading) {
-                        RettangoloGrigio(color: rettangoloColor)
-                        Text(newGroup)
-                            .padding()
+            ScrollView{
+                VStack{
+                    ForEach(savedGroup, id: \.self){ newGroup in
+                        let rettangoloColor = newCategory == newGroup ? Color(red: 0.62, green: 0.90, blue: 0.87) : Color(red: 0.94, green: 0.94, blue: 0.94)
+                        ZStack(alignment: .leading) {
+                            RettangoloGrigio(color: rettangoloColor)
+                            Text(newGroup)
+                                .padding()
+                        }
+                        .padding()
+                        .onTapGesture {
+                            if newCategory == newGroup{
+                                newCategory = ""
+                            }
+                            else {
+                                newCategory = newGroup
+                            }
+                        }
                     }
-                    .padding()
-                    .onTapGesture {
-                        newCategory = newGroup
+                    
+                    TextField("Insert new category", text: $groupTextField)
+                        .padding()
+                        .background(RettangoloGrigio(color: Color(red: 0.94, green: 0.94, blue: 0.94)))
+                        .padding()
+                }//END VSTACK
+                .navigationTitle("Group")
+                .toolbar{
+                    ToolbarItem(placement: .automatic) {
+                        Button(action: {
+                            saveTranscript()
+                            showSheet = false
+                        }, label: {
+                            Text("Done")
+                        })
                     }
                 }
-                
-                TextField("Insert new category", text: $newCategory)
-                    .padding()
-                    .background(RettangoloGrigio(color: Color(red: 0.94, green: 0.94, blue: 0.94)))
-                    .padding()
-            }//END VSTACK
-            .navigationTitle("Group")
-            .toolbar{
-                ToolbarItem(placement: .automatic) {
-                    Button(action: {
-                        saveTranscript()
-                        showSheet = false
-                    }, label: {
-                        Text("Done")
-                    })
-                }
-            }
+            }//END SCROLLVIEW
         }// END NAVIGATION STACK
     }
     
     func saveTranscript() {
+        var category: String = ""
+        if savedGroup.contains(newCategory){
+            category = newCategory
+        }
+        else{
+            category = groupTextField == "" ? "No group" : groupTextField
+        }
+        
         let newRecord = AudioRecord(title: audioTitle == "" ? "New transcript" : audioTitle,
                                     transcript: audioTranscript,
-                                    category: newCategory == "" ? "No group" : newCategory)
+                                    category: category)
         modelContext.insert(newRecord)
     }
 }

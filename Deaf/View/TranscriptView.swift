@@ -29,20 +29,23 @@ struct TranscriptView: View {
                         .edgesIgnoringSafeArea(.top)
                 }
                 
-                if (speechRecognizer.transcript != ""){
-                    ScrollView{
-                        Text(speechRecognizer.transcript)
-                            .padding()
+                ZStack{
+                    if (speechRecognizer.transcript != ""){
+                        ScrollView{
+                            Text(speechRecognizer.transcript)
+                                .font(.body)
+                                .padding()
+                        }
                     }
+                    
+                    Image("Uccello")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 150, height: 150, alignment: .center)
+                        .offset(x: isActive ? UIScreen.main.bounds.width : 0, y: 0)
+                        .animation(.easeInOut(duration: 1), value: isActive)
+                        .padding()
                 }
-                
-                Image("Uccello")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 150, height: 150, alignment: .center)
-                    .offset(x: isActive ? UIScreen.main.bounds.width : 0, y: 0)
-                    .animation(.easeInOut(duration: 1), value: isActive)
-                    .padding()
                 
                 Text(isActive ? "Tap here to stop" : "Tap here to transcribe")
                     .font(.subheadline)

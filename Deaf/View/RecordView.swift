@@ -13,7 +13,7 @@ struct RecordView: View {
     var body: some View {
         VStack{
             Text(audioRecord.date.formatted(date: .long, time: .shortened))
-                .font(.subheadline)
+                .font(.footnote)
                 .frame(alignment: .center)
             
             Spacer()
@@ -21,11 +21,12 @@ struct RecordView: View {
             VStack(alignment: .leading){
                 TextField("Title", text: $audioRecord.title)
                     .font(.title)
+                    .bold()
                 TextEditor(text: $audioRecord.transcript)
                     .font(.body)
             }
             .frame(alignment: .leading)
-            .padding(.top)
+            .padding()
             
             Spacer()
         }

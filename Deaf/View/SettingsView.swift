@@ -101,8 +101,9 @@ struct SettingsView: View {
                     }
                 }
             })
+            
         }//END VSTACK
-        .padding(.horizontal)
+        .padding()
     }
     
     func assignFlag(lang: SpeechRecognizer.Language) -> String {
