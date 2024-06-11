@@ -20,6 +20,21 @@ struct TranscriptView: View {
     @State private var showSettings: Bool = false
     @State private var showOpaqueView: Bool = false
     
+    //MARK: Now the transcript is a group of words joined after splitting them, so that they can each be postprocessed
+    var formattedTranscript: some View {
+        let words = speechRecognizer.transcript.split(separator: " ")
+        let lastWord = words.last ?? ""
+        
+        return Group {
+            Text(words.dropLast().joined(separator: " "))
+            Text(lastWord)
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundStyle(.green)
+        }
+    }
+
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -32,17 +47,14 @@ struct TranscriptView: View {
                 }
                 .blur(radius: speechRecognizer.transcript != "" ? 30 : 0)
                 
-                //MARK: Changes to UI from freelancing start here
+                //MARK: Changes to UI from freelancer start here
                 VStack {
                     Spacer()
                     
                     if speechRecognizer.transcript != "" {
                         ScrollView {
-                            Spacer(minLength: 180)
-                            Text(speechRecognizer.transcript)
-                                .font(.body)
-                                .multilineTextAlignment(.center)
-                                .padding()
+                            Spacer(minLength: 250)
+                            formattedTranscript
                         }
                     } else {
                         Image("Uccello")
