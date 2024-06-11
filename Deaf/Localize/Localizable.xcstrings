@@ -12,7 +12,14 @@
       }
     },
     "Ara Pro" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ara Pro"
+          }
+        }
+      }
     },
     "Billed" : {
       "localizations" : {
@@ -79,6 +86,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fatto"
+          }
+        }
+      }
+    },
+    "Easily convert your audio recordings into written text with our powerful transcription tool" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Converte facilmente il tuo audio registrato in testo scritto con il nostro potente tool di trascrizione"
           }
         }
       }
@@ -162,6 +180,17 @@
         }
       }
     },
+    "Keep your transcriptions organized and accessible by saving them within the app" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantieni le tue trascrizioni organizzate e accessibili salvandole nell'App"
+          }
+        }
+      }
+    },
     "Language" : {
       "localizations" : {
         "it" : {
@@ -205,6 +234,17 @@
         }
       }
     },
+    "New transcript" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nuova trascrizione"
+          }
+        }
+      }
+    },
     "Next" : {
       "localizations" : {
         "en" : {
@@ -233,6 +273,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No audio salvati"
+          }
+        }
+      }
+    },
+    "No Group" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessun Gruppo"
           }
         }
       }
@@ -306,6 +357,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Salva"
+          }
+        }
+      }
+    },
+    "Save your Transcripts" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salva le tue trascrizioni"
           }
         }
       }
@@ -416,6 +478,17 @@
         }
       }
     },
+    "Transcribe Speech to Text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trascrive il parlato in testo"
+          }
+        }
+      }
+    },
     "Unlock pro" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -439,6 +512,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aggiorna il tuo piano"
+          }
+        }
+      }
+    },
+    "Use AI to summarize your transcripts or extract important keywords to quickly find the information you need" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usa IA per riassumere le tue trascrizioni o estrarre importanti parole chiavi per trovare velocemente le informazioni necessarie"
           }
         }
       }

@@ -14,7 +14,7 @@ struct OnBoardingSteps {
 }
 
 private let onBoardingSteps = [
-    OnBoardingSteps(image: "parrot1", title: "Transcribe Audio to Text", description: "Easily convert your audio recordings into written text with our powerful transcription tool"),
+    OnBoardingSteps(image: "parrot1", title: "Transcribe Speech to Text", description: "Easily convert your audio recordings into written text with our powerful transcription tool"),
     OnBoardingSteps(image: "parrot2", title: "Save your Transcripts", description: "Keep your transcriptions organized and accessible by saving them within the app"),
     OnBoardingSteps(image: "parrot3", title: "AI-Powered", description: "Use AI to summarize your transcripts or extract important keywords to quickly find the information you need")
 ]
