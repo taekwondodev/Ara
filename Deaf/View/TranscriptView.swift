@@ -18,7 +18,6 @@ struct TranscriptView: View {
     @State private var showAlert: Bool = false
     @State private var showSheet: Bool = false
     @State private var showSettings: Bool = false
-    @State private var showOpaqueView: Bool = false
     
     //MARK: Now the transcript is a group of words joined after splitting them, so that they can each be postprocessed
     var formattedTranscript: some View {
