@@ -18,90 +18,108 @@ struct TranscriptView: View {
     @State private var showAlert: Bool = false
     @State private var showSheet: Bool = false
     @State private var showSettings: Bool = false
+    @State private var showOpaqueView: Bool = false
+    
+    //MARK: Now the transcript is a group of words joined after splitting them, so that they can each be postprocessed
+    var formattedTranscript: some View {
+        let words = speechRecognizer.transcript.split(separator: " ")
+        let lastWord = words.last ?? ""
+        
+        return Group {
+            Text(words.dropLast().joined(separator: " "))
+            Text(lastWord)
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundStyle(.green)
+        }
+    }
+
+    
     var body: some View {
-        NavigationStack{
-            VStack{
-                GeometryReader{  geometry in
+        NavigationStack {
+            ZStack {
+                GeometryReader { geometry in
                     Image("Ali")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
                         .edgesIgnoringSafeArea(.top)
                 }
+                .blur(radius: speechRecognizer.transcript != "" ? 30 : 0)
                 
-                ZStack{
-                    if (speechRecognizer.transcript != ""){
-                        ScrollView{
-                            Text(speechRecognizer.transcript)
-                                .font(.body)
-                                .padding()
+                //MARK: Changes to UI from freelancer start here
+                VStack {
+                    Spacer()
+                    
+                    if speechRecognizer.transcript != "" {
+                        ScrollView {
+                            Spacer(minLength: 250)
+                            formattedTranscript
                         }
+                    } else {
+                        Image("Uccello")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 150, height: 150, alignment: .center)
+                            .offset(x: isActive ? UIScreen.main.bounds.width : 0, y: 0)
+                            .animation(.easeInOut(duration: 1), value: isActive)
+                            .padding()
+                        
+                        Text(isActive ? "Tap here to stop" : "Tap here to transcribe")
+                            .font(.subheadline)
                     }
                     
-                    Image("Uccello")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 150, height: 150, alignment: .center)
-                        .offset(x: isActive ? UIScreen.main.bounds.width : 0, y: 0)
-                        .animation(.easeInOut(duration: 1), value: isActive)
-                        .padding()
-                }//END ZSTACK
-                
-                Text(isActive ? "Tap here to stop" : "Tap here to transcribe")
-                    .font(.subheadline)
-                Button(action: {
-                    switchRecords(openAI: openAI)
-                    isActive.toggle()
-                })
-                { //LABEL
-                    RecordButton()
-                }
-            }//END VSTACK
+                    Button(action: {
+                        switchRecords(openAI: openAI)
+                        isActive.toggle()
+                    }) {
+                        RecordButton()
+                    }
+                    .padding()
+                } //end of VStack
+                .padding()
+            }//end of ZStack
+            
+            //MARK: and end here
             .sensoryFeedback(.success, trigger: isActive)
             .alert("Do you want to save?", isPresented: $showAlert) {
                 Button("Don't Save", role: .cancel) {}
                 Button("Save", role: .none) { showSheet = true }
             }
-            .sheet(isPresented: $showSheet, content: {
+            .sheet(isPresented: $showSheet) {
                 ModalView(audioTranscript: audioTranscript, showSheet: $showSheet)
-            })
-            .toolbar{
+            }
+            .toolbar {
                 ToolbarItem(placement: .automatic) {
                     Button(action: {
                         showSettings.toggle()
-                    }, label: {
+                    }) {
                         Image(systemName: "gearshape.circle")
                             .foregroundStyle(.black)
-                    })
+                    }
                 }
             }
-            .sheet(isPresented: $showSettings, content: {
-                SettingsView()
-                    .environmentObject(speechRecognizer)
-            })
+            .sheet(isPresented: $showSettings) {
+                SettingsView().environmentObject(speechRecognizer)
+            }
             .animation(.easeInOut, value: speechRecognizer.transcript)
         }
     }
     
-    func switchRecords(openAI: Bool){
-        ///se openAI attivo fai le opzioni di openAI altrimenti usi Speech
-        if !openAI{
-            if !isActive{
+    func switchRecords(openAI: Bool) {
+        if !openAI {
+            if !isActive {
                 speechRecognizer.startTrascribe()
-            }
-            else {
+            } else {
                 audioTranscript = speechRecognizer.transcript
                 speechRecognizer.stopTrascribe()
                 showAlert = true
             }
-        }
-        else {
-            ///chiamata openAI
-            if !isActive{
+        } else {
+            if !isActive {
                 audioRecorder.record()
-            }
-            else {
-                audioRecorder.stopRecording { audioData, fileName   in
+            } else {
+                audioRecorder.stopRecording { audioData, fileName in
                     guard let audioData = audioData else {
                         print("Recorded File is unavailable")
                         return
@@ -115,11 +133,11 @@ struct TranscriptView: View {
         }
     }
     
-    func openAICall(audioTranscript: String, audioData: Data, fileName: String){
-        Task{
-            do{
+    func openAICall(audioTranscript: String, audioData: Data, fileName: String) {
+        Task {
+            do {
                 let response = try await OpenAIClassifier.sendPromptToWhisper(audioFile: audioData, fileName: fileName)
-                DispatchQueue.main.async{
+                DispatchQueue.main.async {
                     self.speechRecognizer.transcript = response
                 }
             } catch {
