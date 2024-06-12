@@ -26,13 +26,14 @@ struct TranscriptView: View {
         
         return Group {
             Text(words.dropLast().joined(separator: " "))
+                .fontWeight(.semibold)
             Text(lastWord)
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                .foregroundStyle(.green)
+                .foregroundStyle(Color(red: 0, green: 0.78, blue: 0.75))
         }
     }
-
+    
     
     var body: some View {
         NavigationStack {
@@ -40,11 +41,13 @@ struct TranscriptView: View {
                 GeometryReader { geometry in
                     Image("Ali")
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: geometry.size.height, alignment: .top)
                         .edgesIgnoringSafeArea(.top)
+                        .opacity(isActive ? 0.6 : 1.0)
+                        .blur(radius: isActive ? 15.0 : 0.0)
                 }
-                .blur(radius: speechRecognizer.transcript != "" ? 30 : 0)
                 
                 //MARK: Changes to UI from freelancer start here
                 VStack {
@@ -54,6 +57,7 @@ struct TranscriptView: View {
                         ScrollView {
                             Spacer(minLength: 250)
                             formattedTranscript
+                                .padding(.horizontal)
                         }
                     } else {
                         Image("Uccello")
@@ -63,23 +67,23 @@ struct TranscriptView: View {
                             .offset(x: isActive ? UIScreen.main.bounds.width : 0, y: 0)
                             .animation(.easeInOut(duration: 1), value: isActive)
                             .padding()
-                        
-                        Text(isActive ? "Tap here to stop" : "Tap here to transcribe")
-                            .font(.subheadline)
                     }
                     
+                    if isActive {
+                        Caricamento()
+                    }
+                    else {
+                        Text("Tap here to transcribe")
+                            .font(.subheadline)
+                    }
                     Button(action: {
                         switchRecords(openAI: openAI)
                         isActive.toggle()
                     }) {
-                        RecordButton()
+                        RecordButton(active: isActive)
                     }
-                    .padding()
-                } //end of VStack
-                .padding()
-            }//end of ZStack
-            
-            //MARK: and end here
+                } //END VStack
+            }//END ZStack
             .sensoryFeedback(.success, trigger: isActive)
             .alert("Do you want to save?", isPresented: $showAlert) {
                 Button("Don't Save", role: .cancel) {}

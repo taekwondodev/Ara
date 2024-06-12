@@ -106,10 +106,14 @@ struct SettingsView: View {
                             .padding()
                     }
                 }
+                .presentationDetents([.medium, .large])
+                .presentationDragIndicator(.hidden)
             })
             
         }//END VSTACK
         .padding()
+        .presentationDetents([.medium, .large])
+        .presentationDragIndicator(.hidden)
     }
     
     func assignFlag(lang: SpeechRecognizer.Language) -> String {

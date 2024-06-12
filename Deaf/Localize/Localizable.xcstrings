@@ -409,6 +409,7 @@
       }
     },
     "Tap here to stop" : {
+      "extractionState" : "stale",
       "localizations" : {
         "it" : {
           "stringUnit" : {

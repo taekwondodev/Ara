@@ -30,7 +30,7 @@ struct SavedRecords: View {
     }
     var body: some View {
         NavigationStack{
-            GeometryReader{geometry in
+            GeometryReader{ geometry in
                 ZStack{
                     Ali(geometry: geometry)
                     
@@ -39,7 +39,7 @@ struct SavedRecords: View {
                         Text("No audio stored")
                     }
                     else{
-                        audioListView(geometry: geometry)
+                        audioListView()
                             .padding(.bottom, 50)
                     }
                     
@@ -50,7 +50,7 @@ struct SavedRecords: View {
         }//END NAVIGATIONSTACK
     }
     
-    func audioListView(geometry: GeometryProxy) -> some View {
+    func audioListView() -> some View {
         List{
             ForEach(groupedAudio.keys.sorted(), id: \.self){ category in
                 Section(header: Text(category).font(.title).bold().foregroundStyle(colorScheme == .dark ? .white : .black)) {

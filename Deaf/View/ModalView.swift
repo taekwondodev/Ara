@@ -17,6 +17,14 @@ struct ModalView: View {
     
     @Binding var showSheet: Bool
     @FocusState private var focus: FormFieldFocus?
+    
+    //MARK: GROUP VIEW PROPERTY
+    @Query var audioRecords: [AudioRecord]
+    var savedGroup : [String]{
+        return Array(Set(audioRecords.map { $0.category }))
+    }
+    @State var groupTextField: String = ""
+    
     var body: some View {
         NavigationStack{
             ScrollView{
@@ -31,17 +39,21 @@ struct ModalView: View {
                             focus = .title
                         })
                     
-                    NavigationLink {
-                        GroupView(audioTranscript: audioTranscript, audioTitle: audioTitle,
-                                  newCategory: $audioCategory, showSheet: $showSheet)
-                    } label: {
-                        ZStack(alignment: .leading){
-                            RettangoloGrigio(color: Color(red: 0.94, green: 0.94, blue: 0.94))
-                            Text("Group")
-                                .padding()
+                    //GROUP
+                    DisclosureGroup(
+                        content: {
+                            GroupView(groupTextField: $groupTextField, newCategory: $audioCategory)
+                        },
+                        label: {
+                            ZStack(alignment: .leading){
+                                RettangoloGrigio(color: Color(red: 0.94, green: 0.94, blue: 0.94))
+                                Text("Group")
+                                    .padding()
+                            }
+//                            .padding()
                         }
-                        .padding()
-                    }
+                    )
+                    .padding()
                 }//END VSTACK
                 .navigationTitle("Title")
                 .toolbar{
@@ -59,9 +71,17 @@ struct ModalView: View {
     }
     
     func saveTranscript() {
+        var category: String = ""
+        if savedGroup.contains(audioCategory){
+            category = audioCategory
+        }
+        else{
+            category = groupTextField == "" ? "No group" : groupTextField
+        }
+        
         let newRecord = AudioRecord(title: audioTitle == "" ? "New transcript" : audioTitle,
                                     transcript: audioTranscript,
-                                    category: audioCategory == "" ? "No group" : audioCategory)
+                                    category: category)
         modelContext.insert(newRecord)
     }
     

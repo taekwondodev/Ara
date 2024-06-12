@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RecordButton: View {
+    var active: Bool
+    
     var body: some View {
         ZStack {
             Circle()
@@ -17,12 +19,22 @@ struct RecordButton: View {
                     Circle()
                         .stroke(Color(red: 1, green: 0.23, blue: 0.19), lineWidth: 2)
                 }
-            
-            Circle()
-                .foregroundStyle(Color(red: 1, green: 0.23, blue: 0.19))
-                .frame(width: 50, height: 50)
+            if !active {
+                Circle()
+                    .foregroundStyle(Color(red: 1, green: 0.23, blue: 0.19))
+                    .frame(width: 50, height: 50)
+            }
+            else {
+                Rectangle()
+                    .foregroundStyle(Color(red: 1, green: 0.23, blue: 0.19))
+                    .frame(width: 20, height: 20)
+            }
         }
         .frame(alignment: .bottom)
         .padding(.bottom)
     }
+}
+
+#Preview {
+    RecordButton(active: true)
 }
