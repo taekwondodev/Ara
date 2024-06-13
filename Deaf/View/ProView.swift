@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProView: View {
+    @State var showAlert: Bool = false
+    
     var body: some View {
         VStack {
             Spacer()
@@ -60,7 +62,9 @@ struct ProView: View {
             }
             .padding()
             
-            Button(action: {}, label: {
+            Button(action: {
+                showAlert = true
+            }, label: {
                 Rectangle()
                     .frame(width: 300, height: 50)
                     .cornerRadius(30)
@@ -73,6 +77,9 @@ struct ProView: View {
                     }
             })
             .padding()
+            .alert("Not available yet", isPresented: $showAlert) {
+                Button("Ok", role: .cancel) {}
+            }
         }//END VSTACK
         
         VStack{
