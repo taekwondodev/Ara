@@ -11,24 +11,31 @@ struct RecordView: View {
     @Bindable var audioRecord: AudioRecord
     
     var body: some View {
-        VStack{
-            Text(audioRecord.date.formatted(date: .long, time: .shortened))
-                .font(.footnote)
-                .frame(alignment: .center)
-            
-            Spacer()
-            
-            VStack(alignment: .leading){
-                TextField("Title", text: $audioRecord.title)
-                    .font(.title)
-                    .bold()
-                TextEditor(text: $audioRecord.transcript)
-                    .font(.body)
+        NavigationStack {
+            VStack(spacing: 0){
+                Text(audioRecord.date.formatted(date: .long, time: .shortened))
+                    .font(.footnote)
+                    .frame(alignment: .center)
+                
+                Spacer()
+                
+                VStack(alignment: .leading){
+                    TextField("Title", text: $audioRecord.title)
+                        .font(.title)
+                        .bold()
+                    TextEditor(text: $audioRecord.transcript)
+                        .font(.body)
+                }
+                .frame(alignment: .leading)
+                .padding()
+                
+                Spacer()
+            }//END VStack
+            .toolbar{
+                ToolbarItem(placement: .automatic) {
+                    ShareLink(item: audioRecord.transcript)
+                }
             }
-            .frame(alignment: .leading)
-            .padding()
-            
-            Spacer()
-        }
+        }//END NStack
     }
 }
