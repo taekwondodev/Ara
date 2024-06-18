@@ -9,11 +9,10 @@ import SwiftUI
 
 struct TranscriptView: View {
     @EnvironmentObject var speechRecognizer: SpeechRecognizer
-    @Environment(AudioRecorder.self) private var audioRecorder: AudioRecorder
     
     @State var audioTranscript: String = ""
     
-    @AppStorage("OpenAi") var openAI: Bool = false
+    @AppStorage("OpenAi") var openAI: Bool = false  //pro property
     @State private var isActive: Bool = false
     @State private var showAlert: Bool = false
     @State private var showSheet: Bool = false
@@ -48,6 +47,7 @@ struct TranscriptView: View {
                         .opacity(isActive ? 0.6 : 1.0)
                         .blur(radius: isActive ? 15.0 : 0.0)
                 }
+                .accessibilityHidden(true)
                 
                 //MARK: Changes to UI from freelancer start here
                 VStack {
@@ -67,21 +67,24 @@ struct TranscriptView: View {
                             .offset(x: isActive ? UIScreen.main.bounds.width : 0, y: 0)
                             .animation(.easeInOut(duration: 1), value: isActive)
                             .padding()
+                            .accessibilityHidden(true)
                     }
                     
                     if isActive {
                         Caricamento()
+                            .accessibilityHidden(true)
                     }
                     else {
                         Text("Tap here to transcribe")
                             .font(.subheadline)
                     }
                     Button(action: {
-                        switchRecords(openAI: openAI)
+                        recordingAction()
                         isActive.toggle()
                     }) {
                         RecordButton(active: isActive)
                     }
+                    .accessibilityLabel("Record")
                 } //END VStack
             }//END ZStack
             .sensoryFeedback(.success, trigger: isActive)
@@ -99,7 +102,7 @@ struct TranscriptView: View {
                     }) {
                         Image(systemName: "gearshape.circle")
                             .foregroundStyle(.black)
-                    }
+                    }.accessibilityLabel("Settings")
                 }
             }
             .sheet(isPresented: $showSettings) {
@@ -109,43 +112,13 @@ struct TranscriptView: View {
         }
     }
     
-    func switchRecords(openAI: Bool) {
-        if !openAI {
-            if !isActive {
-                speechRecognizer.startTrascribe()
-            } else {
-                audioTranscript = speechRecognizer.transcript
-                speechRecognizer.stopTrascribe()
-                showAlert = true
-            }
+    func recordingAction() {
+        if !isActive {
+            speechRecognizer.startTrascribe()
         } else {
-            if !isActive {
-                audioRecorder.record()
-            } else {
-                audioRecorder.stopRecording { audioData, fileName in
-                    guard let audioData = audioData else {
-                        print("Recorded File is unavailable")
-                        return
-                    }
-                    if let fileName = fileName {
-                        openAICall(audioTranscript: audioTranscript, audioData: audioData, fileName: fileName)
-                    }
-                    showAlert = true
-                }
-            }
-        }
-    }
-    
-    func openAICall(audioTranscript: String, audioData: Data, fileName: String) {
-        Task {
-            do {
-                let response = try await OpenAIClassifier.sendPromptToWhisper(audioFile: audioData, fileName: fileName)
-                DispatchQueue.main.async {
-                    self.speechRecognizer.transcript = response
-                }
-            } catch {
-                print(error)
-            }
+            audioTranscript = speechRecognizer.transcript
+            speechRecognizer.stopTrascribe()
+            showAlert = true
         }
     }
 }
