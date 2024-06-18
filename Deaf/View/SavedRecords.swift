@@ -33,6 +33,7 @@ struct SavedRecords: View {
             GeometryReader{ geometry in
                 ZStack{
                     Ali(geometry: geometry)
+                        .accessibilityHidden(true)
                     
                     //MARK: List of AudioRecordings
                     if (audioRecords.isEmpty){

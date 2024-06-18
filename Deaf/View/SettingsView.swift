@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var speechRecognizer: SpeechRecognizer
-    @AppStorage("OpenAi") var openAI: Bool = false
+    @AppStorage("OpenAi") var openAI: Bool = false  //pro property
     
     @State var showLanguage: Bool = false
     @State var showPro: Bool = false

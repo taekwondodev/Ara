@@ -299,10 +299,24 @@
       }
     },
     "Not available yet" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non disponibile"
+          }
+        }
+      }
     },
     "Ok" : {
-
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        }
+      }
     },
     "One Year Subscription" : {
       "localizations" : {
@@ -374,6 +388,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Salva le tue trascrizioni"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impostazioni"
           }
         }
       }

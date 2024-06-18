@@ -16,7 +16,6 @@ struct ContentView: View {
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().backgroundImage = UIImage()
     }
-    var audioRecorder = AudioRecorder()
     @AppStorage("isOnboarding") var isOnboarding = true
     
     var body: some View {
@@ -26,11 +25,7 @@ struct ContentView: View {
         else {
             TabView{
                 TranscriptView()
-                    .task {
-                        audioRecorder.setup()
-                    }
                     .environmentObject(speechRecognizer)
-                    .environment(audioRecorder)
                     .tabItem { Label("Record", systemImage: "waveform.circle") }
                 
                 SavedRecords()
