@@ -67,6 +67,7 @@
 		D4DDE5A22C04BAF1002E0E74 /* AudioRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecord.swift; sourceTree = "<group>"; };
 		D4E01D8E2C0E5A190018135B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		D4E01D922C0F4AEB0018135B /* ProView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProView.swift; sourceTree = "<group>"; };
+		D4E4A25B2C23587500632942 /* Ara.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ara.entitlements; sourceTree = "<group>"; };
 		D4FBDB552BFB8D0900B28F57 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -94,6 +95,7 @@
 		D416DEA42BF79C010082E475 = {
 			isa = PBXGroup;
 			children = (
+				D4E4A25B2C23587500632942 /* Ara.entitlements */,
 				D416DEAF2BF79C010082E475 /* Deaf */,
 				D4FBDB522BFB8D0900B28F57 /* Frameworks */,
 				D416DEAE2BF79C010082E475 /* Products */,
@@ -396,6 +398,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Ara.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Deaf/Preview Content\"";
@@ -434,6 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Ara.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Deaf/Preview Content\"";
