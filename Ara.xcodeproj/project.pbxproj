@@ -22,7 +22,6 @@
 		D44317902C2D998D00623DF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D443178F2C2D998D00623DF9 /* Assets.xcassets */; };
 		D44317942C2D998D00623DF9 /* AraWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D44317822C2D998B00623DF9 /* AraWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D44317992C2DAC2B00623DF9 /* SetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44317982C2DAC2B00623DF9 /* SetLiveActivity.swift */; };
-		D443179A2C2DAC2B00623DF9 /* SetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44317982C2DAC2B00623DF9 /* SetLiveActivity.swift */; };
 		D44B7D692C19E26D007AD556 /* Caricamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44B7D682C19E26D007AD556 /* Caricamento.swift */; };
 		D452ED272C061B9F00C592D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D452ED262C061B9F00C592D3 /* Preview Assets.xcassets */; };
 		D47F335E2C07BDCF00A82C02 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47F335D2C07BDCF00A82C02 /* ModalView.swift */; };
@@ -378,7 +377,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D44317882C2D998B00623DF9 /* AraWidgetBundle.swift in Sources */,
-				D443179A2C2DAC2B00623DF9 /* SetLiveActivity.swift in Sources */,
 				D443178A2C2D998B00623DF9 /* AraWidgetLiveActivity.swift in Sources */,
 				D4BC7FCA2C2E07850049AE70 /* AraWidgetAttributes.swift in Sources */,
 			);
