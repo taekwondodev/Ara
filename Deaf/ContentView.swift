@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     //MARK: SPEECH
     @StateObject var speechRecognizer = SpeechRecognizer()
+    @StateObject var liveActivityManager = SetLiveActivity()
     
     //MARK: View Property
     init(){
@@ -26,6 +27,7 @@ struct ContentView: View {
             TabView{
                 TranscriptView()
                     .environmentObject(speechRecognizer)
+                    .environmentObject(liveActivityManager)
                     .tabItem { Label("Record", systemImage: "waveform.circle") }
                 
                 SavedRecords()

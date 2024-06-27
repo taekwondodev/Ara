@@ -15,6 +15,14 @@
 		D416DEB52BF79C020082E475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D416DEB42BF79C020082E475 /* Assets.xcassets */; };
 		D416DEBF2BF7A0D00082E475 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416DEBE2BF7A0D00082E475 /* SpeechRecognizer.swift */; };
 		D433F13C2C0F851C00FF2963 /* Ali.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433F13B2C0F851C00FF2963 /* Ali.swift */; };
+		D44317842C2D998B00623DF9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44317832C2D998B00623DF9 /* WidgetKit.framework */; };
+		D44317852C2D998B00623DF9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FBDB552BFB8D0900B28F57 /* SwiftUI.framework */; };
+		D44317882C2D998B00623DF9 /* AraWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44317872C2D998B00623DF9 /* AraWidgetBundle.swift */; };
+		D443178A2C2D998B00623DF9 /* AraWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44317892C2D998B00623DF9 /* AraWidgetLiveActivity.swift */; };
+		D44317902C2D998D00623DF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D443178F2C2D998D00623DF9 /* Assets.xcassets */; };
+		D44317942C2D998D00623DF9 /* AraWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D44317822C2D998B00623DF9 /* AraWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D44317992C2DAC2B00623DF9 /* SetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44317982C2DAC2B00623DF9 /* SetLiveActivity.swift */; };
+		D443179A2C2DAC2B00623DF9 /* SetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44317982C2DAC2B00623DF9 /* SetLiveActivity.swift */; };
 		D44B7D692C19E26D007AD556 /* Caricamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44B7D682C19E26D007AD556 /* Caricamento.swift */; };
 		D452ED272C061B9F00C592D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D452ED262C061B9F00C592D3 /* Preview Assets.xcassets */; };
 		D47F335E2C07BDCF00A82C02 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47F335D2C07BDCF00A82C02 /* ModalView.swift */; };
@@ -30,6 +38,16 @@
 		D4E01D932C0F4AEB0018135B /* ProView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E01D922C0F4AEB0018135B /* ProView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D44317922C2D998D00623DF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D416DEA52BF79C010082E475 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D44317812C2D998B00623DF9;
+			remoteInfo = AraWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		D4FBDB692BFB8D0A00B28F57 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -37,6 +55,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				D44317942C2D998D00623DF9 /* AraWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +72,13 @@
 		D416DEB42BF79C020082E475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D416DEBE2BF7A0D00082E475 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		D433F13B2C0F851C00FF2963 /* Ali.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ali.swift; sourceTree = "<group>"; };
+		D44317822C2D998B00623DF9 /* AraWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AraWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44317832C2D998B00623DF9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		D44317872C2D998B00623DF9 /* AraWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AraWidgetBundle.swift; sourceTree = "<group>"; };
+		D44317892C2D998B00623DF9 /* AraWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AraWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		D443178F2C2D998D00623DF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D44317912C2D998D00623DF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D44317982C2DAC2B00623DF9 /* SetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLiveActivity.swift; sourceTree = "<group>"; };
 		D44AD5E32BFB78C6008C00B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D44B7D682C19E26D007AD556 /* Caricamento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caricamento.swift; sourceTree = "<group>"; };
 		D452ED262C061B9F00C592D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -81,6 +107,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D443177F2C2D998B00623DF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44317852C2D998B00623DF9 /* SwiftUI.framework in Frameworks */,
+				D44317842C2D998B00623DF9 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -97,6 +132,7 @@
 			children = (
 				D4E4A25B2C23587500632942 /* Ara.entitlements */,
 				D416DEAF2BF79C010082E475 /* Deaf */,
+				D44317862C2D998B00623DF9 /* AraWidget */,
 				D4FBDB522BFB8D0900B28F57 /* Frameworks */,
 				D416DEAE2BF79C010082E475 /* Products */,
 			);
@@ -106,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				D416DEAD2BF79C010082E475 /* Ara.app */,
+				D44317822C2D998B00623DF9 /* AraWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,6 +164,37 @@
 			path = Deaf;
 			sourceTree = "<group>";
 		};
+		D44317862C2D998B00623DF9 /* AraWidget */ = {
+			isa = PBXGroup;
+			children = (
+				D44317872C2D998B00623DF9 /* AraWidgetBundle.swift */,
+				D44317892C2D998B00623DF9 /* AraWidgetLiveActivity.swift */,
+				D443178F2C2D998D00623DF9 /* Assets.xcassets */,
+				D44317912C2D998D00623DF9 /* Info.plist */,
+			);
+			path = AraWidget;
+			sourceTree = "<group>";
+		};
+		D443179B2C2DAC5500623DF9 /* LiveActivityFunction */ = {
+			isa = PBXGroup;
+			children = (
+				D44317982C2DAC2B00623DF9 /* SetLiveActivity.swift */,
+			);
+			path = LiveActivityFunction;
+			sourceTree = "<group>";
+		};
+		D443179C2C2DB6C700623DF9 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				D433F13B2C0F851C00FF2963 /* Ali.swift */,
+				D44B7D682C19E26D007AD556 /* Caricamento.swift */,
+				D47F335F2C07BF7C00A82C02 /* RecordButton.swift */,
+				D4159DC02C10F68800C9F1A3 /* GroupView.swift */,
+				D4159DC22C11128F00C9F1A3 /* RettangoloGrigio.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
 		D489EB352C060AF5005ABFBD /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,15 +208,12 @@
 			children = (
 				D4E01D922C0F4AEB0018135B /* ProView.swift */,
 				D489EB2F2C060610005ABFBD /* SettingsView.swift */,
-				D433F13B2C0F851C00FF2963 /* Ali.swift */,
 				D489EB312C06061D005ABFBD /* SavedRecords.swift */,
 				D489EB332C06097D005ABFBD /* RecordView.swift */,
 				D4C66D692C020DEE00B585E4 /* TranscriptView.swift */,
-				D44B7D682C19E26D007AD556 /* Caricamento.swift */,
-				D47F335F2C07BF7C00A82C02 /* RecordButton.swift */,
 				D47F335D2C07BDCF00A82C02 /* ModalView.swift */,
-				D4159DC02C10F68800C9F1A3 /* GroupView.swift */,
-				D4159DC22C11128F00C9F1A3 /* RettangoloGrigio.swift */,
+				D443179C2C2DB6C700623DF9 /* UIComponents */,
+				D443179B2C2DAC5500623DF9 /* LiveActivityFunction */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -175,6 +240,7 @@
 				D4C66D5A2BFF823100B585E4 /* Speech.framework */,
 				D4C66D582BFF822C00B585E4 /* AVFoundation.framework */,
 				D4FBDB552BFB8D0900B28F57 /* SwiftUI.framework */,
+				D44317832C2D998B00623DF9 /* WidgetKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -194,11 +260,29 @@
 			buildRules = (
 			);
 			dependencies = (
+				D44317932C2D998D00623DF9 /* PBXTargetDependency */,
 			);
 			name = Ara;
 			productName = Deaf;
 			productReference = D416DEAD2BF79C010082E475 /* Ara.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D44317812C2D998B00623DF9 /* AraWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D44317972C2D998D00623DF9 /* Build configuration list for PBXNativeTarget "AraWidgetExtension" */;
+			buildPhases = (
+				D443177E2C2D998B00623DF9 /* Sources */,
+				D443177F2C2D998B00623DF9 /* Frameworks */,
+				D44317802C2D998B00623DF9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AraWidgetExtension;
+			productName = AraWidgetExtension;
+			productReference = D44317822C2D998B00623DF9 /* AraWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -211,6 +295,9 @@
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					D416DEAC2BF79C010082E475 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					D44317812C2D998B00623DF9 = {
 						CreatedOnToolsVersion = 15.3;
 					};
 				};
@@ -230,6 +317,7 @@
 			projectRoot = "";
 			targets = (
 				D416DEAC2BF79C010082E475 /* Ara */,
+				D44317812C2D998B00623DF9 /* AraWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -242,6 +330,14 @@
 				D452ED272C061B9F00C592D3 /* Preview Assets.xcassets in Resources */,
 				D416DEB52BF79C020082E475 /* Assets.xcassets in Resources */,
 				D4E01D8F2C0E5A190018135B /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D44317802C2D998B00623DF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44317902C2D998D00623DF9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,12 +362,31 @@
 				D44B7D692C19E26D007AD556 /* Caricamento.swift in Sources */,
 				D416DEB12BF79C010082E475 /* DeafApp.swift in Sources */,
 				D416DEBF2BF7A0D00082E475 /* SpeechRecognizer.swift in Sources */,
+				D44317992C2DAC2B00623DF9 /* SetLiveActivity.swift in Sources */,
 				D47F33602C07BF7C00A82C02 /* RecordButton.swift in Sources */,
 				D40D795C2C07626000D5764B /* OnBoardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D443177E2C2D998B00623DF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44317882C2D998B00623DF9 /* AraWidgetBundle.swift in Sources */,
+				D443179A2C2DAC2B00623DF9 /* SetLiveActivity.swift in Sources */,
+				D443178A2C2D998B00623DF9 /* AraWidgetLiveActivity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D44317932C2D998D00623DF9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D44317812C2D998B00623DF9 /* AraWidgetExtension */;
+			targetProxy = D44317922C2D998D00623DF9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D416DEB92BF79C020082E475 /* Debug */ = {
@@ -396,6 +511,7 @@
 		D416DEBC2BF79C020082E475 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Ara.entitlements;
@@ -410,6 +526,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"Ara need this info to Transcribe\"";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "\"Ara need this info to Transcribe\"";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -435,6 +552,7 @@
 		D416DEBD2BF79C020082E475 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Ara.entitlements;
@@ -449,6 +567,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"Ara need this info to Transcribe\"";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "\"Ara need this info to Transcribe\"";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -461,6 +580,70 @@
 				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taekwondodev.Parrot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		D44317952C2D998D00623DF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6STK5CF75S;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AraWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AraWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taekwondodev.Dave.ParrotWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D44317962C2D998D00623DF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6STK5CF75S;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AraWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AraWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.taekwondodev.Dave.ParrotWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -488,6 +671,15 @@
 			buildConfigurations = (
 				D416DEBC2BF79C020082E475 /* Debug */,
 				D416DEBD2BF79C020082E475 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D44317972C2D998D00623DF9 /* Build configuration list for PBXNativeTarget "AraWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44317952C2D998D00623DF9 /* Debug */,
+				D44317962C2D998D00623DF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
