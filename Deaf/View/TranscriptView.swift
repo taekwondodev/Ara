@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TranscriptView: View {
     @EnvironmentObject var speechRecognizer: SpeechRecognizer
+    @EnvironmentObject var liveActivityManager: SetLiveActivity
     
     @State var audioTranscript: String = ""
     
@@ -114,9 +115,11 @@ struct TranscriptView: View {
     func recordingAction() {
         if !isActive {
             speechRecognizer.startTrascribe()
+            liveActivityManager.setupActivity()
         } else {
             audioTranscript = speechRecognizer.transcript
             speechRecognizer.stopTrascribe()
+            liveActivityManager.endActivity()
             showAlert = true
         }
     }

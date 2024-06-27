@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "and" : {
       "localizations" : {
         "it" : {
@@ -10,6 +13,9 @@
           }
         }
       }
+    },
+    "Ara is not recording" : {
+
     },
     "Ara Pro" : {
       "localizations" : {
