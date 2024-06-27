@@ -19,7 +19,7 @@ class SetLiveActivity: ObservableObject {
         let content = ActivityContent(state: initialState, staleDate: nil, relevanceScore: 1.0)
         
         do {
-            let araActivity = try Activity.request(
+            araActivity = try Activity.request(
                 attributes: araWidgetAttributes,
                 content: content,
                 pushType: nil
