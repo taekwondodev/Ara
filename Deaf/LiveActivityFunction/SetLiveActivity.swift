@@ -14,7 +14,6 @@ class SetLiveActivity: ObservableObject {
     
     ///stato iniziale true recording
     func setupActivity(){
-        guard araActivity == nil else { return }
         let initialState = AraWidgetAttributes.ContentState(isRecording: true)
         let content = ActivityContent(state: initialState, staleDate: nil, relevanceScore: 1.0)
         

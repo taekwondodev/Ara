@@ -19,6 +19,7 @@ struct AraWidgetLiveActivity: Widget {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 50, height: 50)
                     .padding(.leading)
+                    .accessibilityHidden(true)
                 
                 Spacer()
                 HStack{
@@ -41,6 +42,7 @@ struct AraWidgetLiveActivity: Widget {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50, height: 50)
                         .padding(.leading)
+                        .accessibilityHidden(true)
                 }
                 DynamicIslandExpandedRegion(.trailing) {
                     Text(context.state.isRecording ? "Ara is recording" : "Ara is not recording")
@@ -53,6 +55,7 @@ struct AraWidgetLiveActivity: Widget {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 30, height: 30)
+                    .accessibilityLabel("Ara")
                 
             } compactTrailing: {
                 Image(systemName: context.state.isRecording ? "mic.fill" : "mic.slash.fill")
@@ -62,6 +65,7 @@ struct AraWidgetLiveActivity: Widget {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 30, height: 30)
+                    .accessibilityLabel("Ara")
             }
         }
     }
