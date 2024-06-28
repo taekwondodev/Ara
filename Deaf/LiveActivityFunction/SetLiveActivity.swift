@@ -9,7 +9,7 @@ import Foundation
 import ActivityKit
 
 class SetLiveActivity: ObservableObject {
-    let araWidgetAttributes: AraWidgetAttributes = AraWidgetAttributes(imageName: "miniUccello")
+    let araWidgetAttributes: AraWidgetAttributes = AraWidgetAttributes(imageName: "uccello")
     @Published var araActivity: Activity<AraWidgetAttributes>? = nil
     
     ///stato iniziale true recording

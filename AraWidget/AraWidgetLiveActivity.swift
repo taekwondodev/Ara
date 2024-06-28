@@ -16,41 +16,53 @@ struct AraWidgetLiveActivity: Widget {
             HStack {
                 Image(context.attributes.imageName)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 50, height: 50)
                     .padding(.leading)
                 
                 Spacer()
-                Text(context.state.isRecording ? "Ara is recording" : "Ara is not recording")
-                    .padding(.trailing, 40)
+                HStack{
+                    Text(context.state.isRecording ? "Ara is recording" : "Ara is not recording")
+                        .foregroundStyle(.accent)
+                    Image(systemName: context.state.isRecording ? "mic.fill" : "mic.slash.fill")
+                        .foregroundStyle(.accent)
+                }
+                .padding(.trailing, 40)
                 Spacer()
             }
-            .activityBackgroundTint(Color.cyan)
-            .activitySystemActionForegroundColor(Color.black)
-
+            
         } dynamicIsland: { context in
             DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
-                    Text("Leading")
+                    Image(context.attributes.imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50, height: 50)
+                        .padding(.leading)
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    Text("Trailing")
-                }
-                DynamicIslandExpandedRegion(.bottom) {
-                    Text("Bottom")
                     Text(context.state.isRecording ? "Ara is recording" : "Ara is not recording")
-                    // more content
                 }
+                //                DynamicIslandExpandedRegion(.bottom) {
+                //                    Text("Bottom")
+                //                }
             } compactLeading: {
-                Text("L")
+                Image("miniUccello")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30, height: 30)
+                
             } compactTrailing: {
-                Text("T")
+                Image(systemName: context.state.isRecording ? "mic.fill" : "mic.slash.fill")
+                    .foregroundStyle(.accent)
             } minimal: {
-                Text("emoji")
+                Image("miniUccello")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30, height: 30)
             }
-            .keylineTint(Color.red)
         }
     }
 }
@@ -64,15 +76,15 @@ extension AraWidgetAttributes {
 extension AraWidgetAttributes.ContentState {
     fileprivate static var trueRecording: AraWidgetAttributes.ContentState {
         AraWidgetAttributes.ContentState(isRecording: true)
-     }
-     
-     fileprivate static var falseRecording: AraWidgetAttributes.ContentState {
-         AraWidgetAttributes.ContentState(isRecording: false)
-     }
+    }
+    
+    fileprivate static var falseRecording: AraWidgetAttributes.ContentState {
+        AraWidgetAttributes.ContentState(isRecording: false)
+    }
 }
 
 #Preview("Notification", as: .content, using: AraWidgetAttributes.preview) {
-   AraWidgetLiveActivity()
+    AraWidgetLiveActivity()
 } contentStates: {
     AraWidgetAttributes.ContentState.trueRecording
     AraWidgetAttributes.ContentState.falseRecording

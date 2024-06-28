@@ -152,13 +152,12 @@
 		D416DEAF2BF79C010082E475 /* Deaf */ = {
 			isa = PBXGroup;
 			children = (
+				D416DEB02BF79C010082E475 /* DeafApp.swift */,
 				D44AD5E32BFB78C6008C00B1 /* Info.plist */,
 				D4DDE5A42C04BB33002E0E74 /* Persistence */,
-				D416DEB02BF79C010082E475 /* DeafApp.swift */,
-				D40D795B2C07626000D5764B /* OnBoardingView.swift */,
-				D416DEB22BF79C010082E475 /* ContentView.swift */,
 				D489EB362C061455005ABFBD /* View */,
 				D4C66D682C020DD100B585E4 /* SpeechRecognizer */,
+				D443179B2C2DAC5500623DF9 /* LiveActivityFunction */,
 				D40D79562C072EAB00D5764B /* Localize */,
 				D416DEB42BF79C020082E475 /* Assets.xcassets */,
 				D489EB352C060AF5005ABFBD /* Preview Content */,
@@ -209,6 +208,8 @@
 		D489EB362C061455005ABFBD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D40D795B2C07626000D5764B /* OnBoardingView.swift */,
+				D416DEB22BF79C010082E475 /* ContentView.swift */,
 				D4E01D922C0F4AEB0018135B /* ProView.swift */,
 				D489EB2F2C060610005ABFBD /* SettingsView.swift */,
 				D489EB312C06061D005ABFBD /* SavedRecords.swift */,
@@ -216,7 +217,6 @@
 				D4C66D692C020DEE00B585E4 /* TranscriptView.swift */,
 				D47F335D2C07BDCF00A82C02 /* ModalView.swift */,
 				D443179C2C2DB6C700623DF9 /* UIComponents */,
-				D443179B2C2DAC5500623DF9 /* LiveActivityFunction */,
 			);
 			path = View;
 			sourceTree = "<group>";
